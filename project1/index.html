@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+
+		<!-- include the bootstrap css file  -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+		<!-- include the js bootstrap file  -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+
+        <!-- bootstrap icons cdn  -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
+		<!-- include css file   -->
+		<link rel="stylesheet" href="assets/css/style.css" />
+	</head>
+	<body >
+		<nav class="navbar navbar-expand-md navbar-dark bg-dark text-white fixed-top">
+    <div class="container">
+        <a href="#" class="navbar-brand">Bootstrap Tutorial</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainmenu">
+            <span class="navbar-toggler-icon navbar-toggler-icon-custom"></span>
+        </button>
+        <div class="collapse navbar-collapse ms-auto" id="mainmenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a href="#hero" class="nav-link">Get Started</a></li>
+                <li class="nav-item"><a href="#learn" class="nav-link">Learn</a></li>
+                <li class="nav-item"><a href="#next" class="nav-link">next</a></li>
+                <li class="nav-item"><a href="#faq" class="nav-link">Question</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+		<!-- hero  -->
+		<section id="hero" class="text-dark p-4 text-center text-sm-start bg-black text-white">
+			<div class="container-xxl">
+				<div class="d-md-flex gap-5 text-sm-center align-items-center">
+					<div class="d-flex flex-column justify-content-between mb-5">
+						<h1 class="display-5">Learn <span class="text-info">Bootstrap</span></h1>
+						<p class="lead">Lorem ipsum dolor sit amet consectetur, adipisicing elit. At vitae odit incidunt nostrum voluptas voluptate aliquid eveniet nihil porro, eligendi deserunt veritatis maxime corporis officia nemo eius culpa magni deleniti!</p>
+						<button class="btn btn-info mt-3">Get Started</button>
+					</div>
+
+					<img src="assets/imgs/test.jpg" alt="" class="img-fluid w-50 rounded-3" id="imgPer" />
+
+					<style>
+						@media (max-width: 768px) {
+							img#imgPer {
+								width: 100% !important;
+							}
+						}
+					</style>
+				</div>
+			</div>
+		</section>
+
+		<!-- learn  -->
+		<section class="py-5 " id="learn" >
+			<div class="container text-center">
+				<div class="row mt-4 gy-4 " >
+					<div class="col-sm col-md-6 col-lg-4">
+						<div class="card text text-light bg-black  mb-3" >
+                            <img src="https://images.pexels.com/photos/12568029/pexels-photo-12568029.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="" class="img-fluid card-img-top">
+							<div class="card-body text-center">
+								<h4 class="card-title mb-2 text-warning">Responsive</h4>
+								<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique ex facere</p>
+							
+                            <a  class="btn btn-info">Learn More</a>
+                            </div>
+						</div>
+					</div>
+
+					<div class="col-sm col-md-6 col-lg-4">
+                        <div class="card text text-light bg-black  mb-3" >
+                            <img src="https://images.pexels.com/photos/10849243/pexels-photo-10849243.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="" class="img-fluid card-img-top">
+							<div class="card-body text-center">
+								<h4 class="card-title mb-2 text-warning">Alternative</h4>
+								<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique ex facere</p>
+							
+                            <a  class="btn btn-info">Learn More</a>
+                            </div>
+						</div>
+                    </div>
+					<div class="col-sm col-md-6 col-lg-4">
+                        <div class="card text text-light bg-black mb-3" >
+                            <img src="https://images.pexels.com/photos/10849253/pexels-photo-10849253.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="" class="img-fluid card-img-top">
+							<div class="card-body text-center">
+								<h4 class="card-title mb-2 text-warning">Capacitive</h4>
+								<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique ex facere</p>
+							
+                            <a  class="btn btn-info">Learn More</a>
+                            </div>
+						</div>
+                    </div>
+				</div>
+			</div>
+		</section>
+<!-- next  -->
+        <section id="next" class="py-5">
+
+            <div class="container">
+                <div class="row align-items-center justify-content-center d-flex gap-3 ">
+                    <div class="col-md">
+                        <img src="https://images.pexels.com/photos/18174681/pexels-photo-18174681/free-photo-of-head-of-ara.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" class="img-fluid rounded">
+                    </div>
+                    <div class="col-md py-4">
+                        <h2 class="text-warning-emphasis">Learn the basic </h2>
+                        <p >
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo tempora, repellendus libero aliquid magni laboriosam distinctio in labore illum voluptatibus id enim dolorum molestias facere non, animi deleniti, sed rerum?
+                        </p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi, reiciendis dolor possimus quas saepe facere consequuntur inventore minima omnis architecto.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="next" class="py-5">
+
+            <div class="container">
+                <div class="row align-items-center justify-content-center d-flex gap-3 flex-row-reverse ">
+                    <div class="col-md">
+                        <img src="https://images.pexels.com/photos/19583366/pexels-photo-19583366/free-photo-of-parrot-with-red-feathers.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" class="img-fluid rounded">
+                    </div>
+                    <div class="col-md py-4">
+                        <h2 class="text-warning-emphasis">Extra</h2>
+                        <p >
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo tempora, repellendus libero aliquid magni laboriosam distinctio in labore illum voluptatibus id enim dolorum molestias facere non, animi deleniti, sed rerum?
+                        </p>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi, reiciendis dolor possimus quas saepe facere consequuntur inventore minima omnis architecto.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- faq -->
+<section id="faq"  class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-3 border border-2 p-3 border-secondare rounded   mb-4 ">
+            Frequently Asked Questions
+        </h2>
+        
+            <div class="accordion accordion-flush d-flex flex-column gap-3" id="bt-faq">
+          
+            <div class="accordion-item">
+                <h5 class="accordion-header" id="faq1">
+                    <button class="accordion-button collapsed  fw-bold" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#ans1">
+                        Question One
+                    </button>
+                </h5>
+                <div class="accordion-collapse px-3 text-secondary " data-bs-parent="#bt-faq" id="ans1">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem, fugiat quibusdam quod debitis quam, eligendi ipsam aut expedita non nostrum dolorum velit nisi eius aliquid consequatur id. Facere, labore pariatur!
+                </div>
+            </div>
+          
+            <div class="accordion-item ">
+                <h4 class="accordion-header " id="faq2">
+                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#ans2">
+                        Question One
+                    </button>
+                </h4>
+                <div class="accordion-collapse px-3 text-secondary"  data-bs-parent="#bt-faq"id="ans2">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem, fugiat quibusdam quod debitis quam, eligendi ipsam aut expedita non nostrum dolorum velit nisi eius aliquid consequatur id. Facere, labore pariatur!
+                </div>
+            </div>
+          
+            <div class="accordion-item ">
+                <h4 class="accordion-header " id="fa13">
+                    <button class="accordion-button collapsed  fw-bold" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#ans3">
+                        Question One
+                    </button>
+                </h4>
+                <div class="accordion-collapse px-3 text-secondary" data-bs-parent="#bt-faq" id="ans3">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem, fugiat quibusdam quod debitis quam, eligendi ipsam aut expedita non nostrum dolorum velit nisi eius aliquid consequatur id. Facere, labore pariatur!
+                </div>
+            </div>
+            
+        
+        </div>
+    </div>
+</section>
+
+<!-- footer  -->
+<footer class="py-3 bg-dark text-white text-center position-relative">
+<div class="container">
+    <p class="lead">
+        copyright &copy   2023 Ayoub Majid 
+    </p>
+    <a href="#" class="position-absolute bottom-0 end-0 p-3">
+        <i class="bi bi-arrow-up-circle h2"></i>
+    </a>
+</div>
+</footer>
+	</body>
+</html>
