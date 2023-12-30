@@ -1,0 +1,7 @@
+
+/* start tooltips  */
+.custom-tooltip {
+    --bs-tooltip-bg: rgba(0, 0, 0, 0.896);
+    --bs-tooltip-color: white;
+  }
+/* end tooltips  */
