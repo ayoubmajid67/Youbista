@@ -24,8 +24,23 @@
 	<body style="background-color: #e1eaeb">
 		<!-- start navigation bar  -->
 
-		<div class="container d-flex justify-content-center position-sticky top-0 z-3 " >
+		<div class="container d-flex justify-content-center position-sticky top-0 z-3 customMobile" >
 			<nav class="navbar navbar-expand-lg bg-body-tertiary shadow rounded pt-2 col-12 col-lg-9  ">
+				<style>	
+				@media (max-width:768px){
+				.customMobile{
+                   padding-left: 0 !important;
+				   padding-right: 0 !important;
+					 
+				}
+					.customMobile nav.navbar{
+				
+						border-radius: 0 !important;
+		         		width: 100% !important;
+
+					}
+				 }
+				</style>
 				<div class="container-fluid">
 					<a class="navbar-brand fw-medium fs-3 rounded" href="#">Majid</a>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
