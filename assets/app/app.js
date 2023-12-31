@@ -1,94 +1,84 @@
-    let baseUrl = "https://tarmeezacademy.com/api/v1";
-    let postsUrl = baseUrl + "/posts?limit=30";
+const baseUrl = "https://tarmeezacademy.com/api/v1";
+const getPostsUrl = baseUrl + "/posts?limit=50";
+const backupProfileImg="./assets/imgs/profile.png"; 
+const backupBodyImg="./assets/imgs/body.jpg"; 
 
-    // posts dom parent :
+// posts dom parent :
 
-    let domPostsParent = document.getElementById("posts");
+let domPostsParent = document.getElementById("posts");
 
-    async function getJsonPosts() {
-        try {
-            let response = await axios.get(postsUrl);
-            let data = await response.data;
+async function getJsonPosts() {
+	try {
+		let response = await axios.get(getPostsUrl);
+		let data = await response.data;
 
-            return data.data;
-        } catch (error) {
-            console.log("Error while  Fetching the data : ", error);
-            throw error;
-        }
-    }
+		return data.data;
+	} catch (error) {
+		console.log("Error while  Fetching the data : ", error);
+		throw error;
+	}
+}
 
+class cPost {
+    FillPostTags(){
    
- class  cPost{
-   
-    checkValidValues(){
-
-        if(this.profile instanceof Object){
-          
-         this.profile="./assets/imgs/profile.png"; 
-        }
+        const arrTags=Array.from(this.tags); 
         
-        if(this.bodyImg instanceof Object){
-          
-         this.bodyImg="assets/imgs/body.jpg"; 
-        }
-          if(this.name==null){
-            this.name="no Name"; 
-          }
-        if(this.title ==null){
-           this.title ="No Title"; 
-        }
-        if(this.bodyText==null){
-        this.bodyText="No Body"; 
-        }
         
+        for(let  i=0 ; i<arrTags.length;i++){
+            if(i==3) return; 
+            this.tagContent +=`<a href="#" class=" btn text-secondary btn-outline-secondary  ">${arrTags[i]}</a>	`;  
 
-        
-    }
-   
-    constructor(profileImg,username,name,bodyImg,createdDate,title,bodyText,comments){
-
-    this.profile=profileImg; 
-    this.name=name;
-    this.username=username; 
-    this.bodyImg=bodyImg;
-    this.createdDate=createdDate; 
-    this.title=title; 
-    this.bodyText=bodyText;
-    this.comments=comments;  
-    this.checkValidValues(); 
-
-   }
-
-
-
-  }
-    function resetPostInfo(){
-
-
-    }
-
-    function postJsonToHtml(jsonPost) {
-
-         
-
+        }
        
-       
-       
-        let createdDate=jsonPost.created_at;  
-        let titleContent=jsonPost.title; 
-         let PostObject=new cPost( 
-            jsonPost.author.profile_image,
-            jsonPost.author.username,
-            jsonPost.author.name,
-            bodyImage=jsonPost.image,
-            jsonPost.created_at,
-            titleContent,
-            jsonPost.title,
-            jsonPost.comments_count
-            );
-       
-        
-        htmlPost = `
+        }
+	checkValidValues() {
+		if (this.profile instanceof Object) {
+			this.profile = backupProfileImg
+		}
+
+		if (this.bodyImg instanceof Object) {
+			this.bodyImg = backupBodyImg;
+		}
+		if (this.name == null) {
+			this.name = "no Name";
+		}
+		if (this.title == null) {
+			this.title = "No Title";
+		}
+		if (this.bodyText == null) {
+			this.bodyText = "No Body";
+		}
+      
+        if(this.tags.length>0){
+            
+            this.FillPostTags(); 
+
+        }
+               
+	}
+
+	constructor(profileImg, username, name, bodyImg, createdDate, title, bodyText,tags,comments) {
+		this.profile = profileImg;
+		this.name = name;
+		this.username = username;
+		this.bodyImg = bodyImg;
+		this.createdDate = createdDate;
+		this.title = title;
+		this.bodyText = bodyText;
+        this.tags=tags; 
+        this.tagContent=""; 
+		this.comments = comments;
+		this.checkValidValues();
+	}
+}
+
+ 
+
+function postJsonToHtml(jsonPost) {
+ 
+	let PostObject = new cPost(jsonPost.author.profile_image, jsonPost.author.username, jsonPost.author.name, (bodyImage = jsonPost.image), jsonPost.created_at, jsonPost.title,jsonPost.body,jsonPost.tags ,jsonPost.comments_count);
+	htmlPost = `
             <div class="card w-100 shadow-sm" style="width: 18rem">
                                 <div class="card-header d-flex align-items-end gap-2">
                                     <img src="${PostObject.profile}" alt="profile img" class="rounded-circle border border-2" style="width: 44px; height: 44px;  margin-left: 1px" />
@@ -100,16 +90,24 @@
                                     <h5 class="card-title">${PostObject.title}</h5>
                                     <p class="card-text">${PostObject.bodyText}.</p>
                                     <hr />
+                                  
+                                    <div class="tagCommentContent d-flex justify-content-between  align-items-center g-2">
+
                                     <a href="#" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="<b>${PostObject.comments}</b>" data-bs-custom-class="custom-tooltip"> Comments</a>
+                                 <div class="tagContent d-flex gap-2 w-75 justify-content-end  overflow-hidden ">
+                                             ${PostObject.tagContent}
+                                 
+                                </div>
+                            
                                 </div>
             </div>
             
             `;
-        return htmlPost;
-    }
+	return htmlPost;
+}
 
-    function getMyPost() {
-        return `<div class="card w-100 shadow-sm" style="width: 18rem">
+function getMyPost() {
+	return `<div class="card w-100 shadow-sm" style="width: 18rem">
         <div class="card-header d-flex align-items-end gap-2">
             <img src="./assets/imgs/profile.png " alt="profile img" class="rounded-circle border border-2" style="width: 44px; height: 44px;  margin-left: 1px" />
             <h4 class="text-secondary"><span class="text-black">M</span>ajid</h4>
@@ -123,23 +121,23 @@
             <a href="#" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="<b>3</b>" data-bs-custom-class="custom-tooltip"> Comments</a>
         </div>
     </div>`;
-    }
+}
 
-    async function PushPostToDom() {
-        domPostsParent.innerHTML = "";
-        domPostsParent.innerHTML += getMyPost();
-        let arrPosts = Array.from(await getJsonPosts());
-        arrPosts.forEach((post) => {
-            // get post as html
-            htmlPost = postJsonToHtml(post);
+async function PushPostToDom() {
+	domPostsParent.innerHTML = "";
+	domPostsParent.innerHTML += getMyPost();
+	let arrPosts = Array.from(await getJsonPosts());
+	arrPosts.forEach((post) => {
+		// get post as html
+		htmlPost = postJsonToHtml(post);
 
-            // push post to dom
-            domPostsParent.innerHTML += htmlPost;
-        });
+		// push post to dom
+		domPostsParent.innerHTML += htmlPost;
+	});
 
-        // Initialize tooltips for the newly added posts
-        const newTooltipTriggerList = domPostsParent.querySelectorAll('[data-bs-toggle="tooltip"]');
-        newTooltipTriggerList.forEach((tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl));
-    }
+	// Initialize tooltips for the newly added posts
+	const newTooltipTriggerList = domPostsParent.querySelectorAll('[data-bs-toggle="tooltip"]');
+	newTooltipTriggerList.forEach((tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl));
+}
 
-    PushPostToDom();
+PushPostToDom();

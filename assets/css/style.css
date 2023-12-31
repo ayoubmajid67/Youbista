@@ -5,3 +5,9 @@
     --bs-tooltip-color: white;
   }
 /* end tooltips  */
+
+/*start   tag content style  */
+.card .tagCommentContent .tagContent a{
+  font-size: 0.82rem ;
+}
+/*  end tag content style  */
