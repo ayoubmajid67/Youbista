@@ -23,7 +23,7 @@
 	<body style="background-color: #e1eaeb">
 
    
-				<!-- start register  model  -->
+				<!-- start login  model  -->
 				<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 					<div class="modal-dialog">
 						<div class="modal-content">
@@ -52,8 +52,48 @@
 						</div>
 					</div>
 				</div>
+				<!-- end login  model  -->
 
-				<!-- end register  model  -->
+				<!-- start Register  model  -->
+				<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h1 class="modal-title fs-5" id="RegisterTitle">Register</h1>
+								<h1 class="modal-title fs-6 text-danger w-100   text-center px-3 fw-bold " id="errorRegisterMsg"></h1>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								<form id="registerForm"  enctype="multipart/form-data" >
+									<div class="mb-3">
+										<label for="usernameRegister" class="col-form-label">Username:</label>
+										
+										<input type="text" class="form-control" id="usernameRegister" required pattern="[A-Za-z][A-Za-z0-9]*" placeholder="required" >
+									</div>
+									<div class="mb-3">
+										<label for="passwordRegister" class="col-form-label">Password:</label>
+										<input type="password" class="form-control" id="passwordRegister" required placeholder="required">
+
+										<label for="imgRegiste" class="col-form-label mt-2">Profile image :</label>
+										<input type="file" class="form-control"    my-3 p-2  id="imgRegister"  name="image" accept="image/*"  >
+
+										<label for="nameRegister" class="col-form-label  mt-2">name:</label>
+										<input type="text" class="form-control" id="nameRegister"   pattern="[A-Za-z][A-Za-z0-9 ]*" required placeholder="required" >
+
+										<label for="emailRegister" class="col-form-label">@email:</label>
+										<input type="email" class="form-control" id="emailRegister">
+										 
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="closeRegisterBtn">Close</button>
+										<button type="submit" class="btn btn-primary" id="registerBtn">Register</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end  register   model  -->
 
 
 
@@ -176,6 +216,9 @@
 
 	  <!-- logout js script  -->
 	  <script src="assets/app/logout.js"></script>
+
+	  <!-- register js script  -->
+	  <script src="assets/app/register.js"></script>
 		
 	</body>
 </html>

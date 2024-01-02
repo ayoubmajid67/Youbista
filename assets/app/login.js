@@ -12,7 +12,7 @@ let allowSubmission = true;
  
 
 // get Login response :
-async function getUserResponse(username, password) {
+async function getUserResponse(username, password) {	
 	try {
 		let response = await axios.post(loginUrl, {
 			username: username,
@@ -42,7 +42,7 @@ function showLoginSuccessMsg(successMsg) {
 
 const LoginForm = document.getElementById("loginForm");
 
-const handelLoginSubmit = LoginForm.addEventListener("submit", async function (event) {
+LoginForm.addEventListener("submit", async function (event) {
 	event.preventDefault();
 	let status = await handleLogin();
 
