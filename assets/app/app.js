@@ -1,7 +1,7 @@
 const baseUrl = "https://tarmeezacademy.com/api/v1";
 const getPostsUrl = baseUrl + "/posts?limit=50";
-const backupProfileImg="./assets/imgs/profile.png"; 
-const backupBodyImg="./assets/imgs/body.jpg"; 
+const backupProfileImg = "./assets/imgs/profile.png";
+const backupBodyImg = "./assets/imgs/body.jpg";
 
 // posts dom parent :
 
@@ -20,21 +20,17 @@ async function getJsonPosts() {
 }
 
 class cPost {
-    FillPostTags(){
-   
-        const arrTags=Array.from(this.tags); 
-        
-        
-        for(let  i=0 ; i<arrTags.length;i++){
-            if(i==3) return; 
-            this.tagContent +=`<a href="#" class=" btn text-secondary btn-outline-secondary  ">${arrTags[i]}</a>	`;  
+	FillPostTags() {
+		const arrTags = Array.from(this.tags);
 
-        }
-       
-        }
+		for (let i = 0; i < arrTags.length; i++) {
+			if (i == 3) return;
+			this.tagContent += `<a href="#" class=" btn text-secondary btn-outline-secondary  ">${arrTags[i]}</a>	`;
+		}
+	}
 	checkValidValues() {
 		if (this.profile instanceof Object) {
-			this.profile = backupProfileImg
+			this.profile = backupProfileImg;
 		}
 
 		if (this.bodyImg instanceof Object) {
@@ -49,16 +45,13 @@ class cPost {
 		if (this.bodyText == null) {
 			this.bodyText = "No Body";
 		}
-      
-        if(this.tags.length>0){
-            
-            this.FillPostTags(); 
 
-        }
-               
+		if (this.tags.length > 0) {
+			this.FillPostTags();
+		}
 	}
 
-	constructor(profileImg, username, name, bodyImg, createdDate, title, bodyText,tags,comments) {
+	constructor(profileImg, username, name, bodyImg, createdDate, title, bodyText, tags, comments) {
 		this.profile = profileImg;
 		this.name = name;
 		this.username = username;
@@ -66,25 +59,22 @@ class cPost {
 		this.createdDate = createdDate;
 		this.title = title;
 		this.bodyText = bodyText;
-        this.tags=tags; 
-        this.tagContent=""; 
+		this.tags = tags;
+		this.tagContent = "";
 		this.comments = comments;
 		this.checkValidValues();
 	}
 }
 
- 
-
 function postJsonToHtml(jsonPost) {
- 
-	let PostObject = new cPost(jsonPost.author.profile_image, jsonPost.author.username, jsonPost.author.name, (bodyImage = jsonPost.image), jsonPost.created_at, jsonPost.title,jsonPost.body,jsonPost.tags ,jsonPost.comments_count);
+	let PostObject = new cPost(jsonPost.author.profile_image, jsonPost.author.username, jsonPost.author.name, (bodyImage = jsonPost.image), jsonPost.created_at, jsonPost.title, jsonPost.body, jsonPost.tags, jsonPost.comments_count);
 	htmlPost = `
             <div class="card w-100 shadow-sm" style="width: 18rem">
                                 <div class="card-header d-flex align-items-end gap-2">
                                     <img src="${PostObject.profile}" alt="profile img" class="rounded-circle border border-2" style="width: 44px; height: 44px;  margin-left: 1px" />
                                     <h4 class="text-secondary"><span class="text-black">@${PostObject.username}</span> ${PostObject.name}</h4>
                                 </div>
-                                <img src="${PostObject.bodyImg}" class="img-fluid" alt="Post img " style="aspect-ratio: 16/9; object-fit: cover" />
+                                <img src="${PostObject.bodyImg}" class="img-fluid" alt="Post img " style="aspect-ratio: 16/9; object-fit: contain" />
                                 <h6 class="px-1 pt-1 text-end">${PostObject.createdDate}</h6>
                                 <div class="card-body pt-1">
                                     <h5 class="card-title">${PostObject.title}</h5>
@@ -106,8 +96,9 @@ function postJsonToHtml(jsonPost) {
 	return htmlPost;
 }
 
-function getMyPost() {
-	return `<div class="card w-100 shadow-sm" style="width: 18rem">
+function getMainBeforePosts() {
+	return `
+	<div class="card w-100 shadow-sm" style="width: 18rem">
         <div class="card-header d-flex align-items-end gap-2">
             <img src="./assets/imgs/profile.png " alt="profile img" class="rounded-circle border border-2" style="width: 44px; height: 44px;  margin-left: 1px" />
             <h4 class="text-secondary"><span class="text-black">M</span>ajid</h4>
@@ -125,7 +116,7 @@ function getMyPost() {
 
 async function PushPostToDom() {
 	domPostsParent.innerHTML = "";
-	domPostsParent.innerHTML += getMyPost();
+	domPostsParent.innerHTML += getMainBeforePosts();
 	let arrPosts = Array.from(await getJsonPosts());
 	arrPosts.forEach((post) => {
 		// get post as html
