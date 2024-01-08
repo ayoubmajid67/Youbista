@@ -1,16 +1,3 @@
-const imgContainer = document.querySelector("#addPostForm .imgContainer");
-const imgContainerContent = document.querySelector("#addPostForm .imgContainer .content");
-
-const postTitle=document.getElementById("postTitle"); 
-const postBody = document.getElementById("postBody");
-const postFileInput = document.getElementById("postImg");
-const postTags = document.getElementById("postTags");
-const AddPostFrom = document.getElementById("addPostForm");
-const closeAddPostBtn = document.getElementById("closeAddPostBtn");
-
-
-
-
 function updateFileBackground() {
 	if (postFileInput.files.length > 0) {
 		const reader = new FileReader();
@@ -37,7 +24,7 @@ async function getAddPostResponse(postInfo) {
 		const config = {
 			headers: {
 				"Content-Type": "multipart/form-data",
-				"Authorization": `Bearer ${token}`,
+				Authorization: `Bearer ${token}`,
 			},
 		};
 
@@ -55,33 +42,38 @@ async function handleAddPost() {
 
 	postInfo.append("title", postTitle.value);
 	postInfo.append("body", postBody.value);
-     let trimTags= postTags.value.replace(/\s+/g, ' ');
-    let arrTags=trimTags.split(' '); 
-	postInfo.append("tags",arrTags.join(","));
+	let trimTags = postTags.value.replace(/\s+/g, " ");
+	let arrTags = trimTags.split(" ");
+	postInfo.append("tags", arrTags.join(","));
 
 	let imgFile = postFileInput.files[0];
 	if (imgFile) {
 		postInfo.append("image", imgFile);
 	}
-     
-
 
 	try {
-		let postJsonData= await getAddPostResponse(postInfo);
+		let postJsonData = await getAddPostResponse(postInfo);
 
 		appendAlert("Post added with Success", "info");
 		await clearAlert();
-         
+
 		return [true, postJsonData];
 	} catch (errorMsg) {
-    
-		console.error(errorMsg); 
-        
+		await appendAlert(errorMsg, "danger");
+          clearAlert();
 		return [false, ""];
 	}
 }
 
 // function from app.js : postJsonToHtml
+
+function clearPostModal() {
+	imgContainer.style.backgroundImage = `none`;
+	imgContainerContent.style.display = "block";
+	postTitle.value = "";
+	postBody.value = "";
+	postTags.value = "";
+}
 
 AddPostFrom.addEventListener("submit", async function (event) {
 	event.preventDefault();
@@ -89,10 +81,12 @@ AddPostFrom.addEventListener("submit", async function (event) {
 	let [status, postJson] = await handleAddPost();
 	if (status) {
 		closeAddPostBtn.click();
-      
-        let htmlPost = postJsonToHtml(postJson);
-        
 
-		domPostsParent.insertAdjacentHTML('afterbegin', htmlPost);
+		let htmlPost = postJsonToHtml(postJson);
+
+		domPostsParent.insertAdjacentHTML("afterbegin", htmlPost);
+		initializeTooltips();
+	   clearPostModal(); 
+		clearAlert();
 	}
 });

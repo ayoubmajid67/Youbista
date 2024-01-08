@@ -1,2 +1,7 @@
-const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+function initializeTooltips(){
+    // Initialize tooltips for the newly added posts
+    const newTooltipTriggerList = domPostsParent.querySelectorAll('[data-bs-toggle="tooltip"]');
+    newTooltipTriggerList.forEach((tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl));
+    
+    }
+

@@ -90,7 +90,7 @@
 		<!-- end  register   model  -->
 
 		<!-- start  post modal   -->
-		<div class="modal fade" id="addPostModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 50px">
+		<div class="modal fade" id="addPostModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 50px; transform: scale(0.92);">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -103,7 +103,7 @@
 								<input type="text" class="form-control p-3 mb-2" id="postTitle" placeholder="enter the Title" />
 								<textarea class="p-2 w-100" placeholder="what's are you thinking ? " id="postBody" required></textarea>
 
-								<div class="imgContainer d-flex justify-content-center align-items-center">
+								<div class="imgContainer d-flex justify-content-center align-items-center p-2">
 									<div class="content text-center">
 										<h4 class="text-secondary">Choose a File</h4>
 										<img width="64" height="64" src="assets/icons/addPost.svg" alt="add-image" />
@@ -111,7 +111,7 @@
 									<input type="file" class="my-3 p-2" id="postImg" name="image" accept="image/*" onchange="updateFileBackground()" />
 								</div>
 
-								<input type="text" class="form-control p-3" id="postTags" placeholder="#tag1 #tag2 .." />
+								<input type="text" class="form-control p-3 mt-2" id="postTags" placeholder="Tag1 Tag2 .." />
 							</div>
 
 							<button type="submit" class="btn btn-primary w-100 fw-bold" id="addPostBtn">Add Post</button>
@@ -192,9 +192,12 @@
 							</div>
 						</div>
 					</div>
-					<!-- end  post  -->
-
 				</div>
+			<!-- end  post  -->
+				
+				
+
+
 			</div>
 		</div>
 		<!-- end posts  -->
@@ -217,6 +220,9 @@
 		<!-- import check user login script  -->
 		<script src="assets/app/checkUserLogin.js"></script>
 
+		<!-- source js script  -->
+		<script src="assets/app/source.js"></script>
+
 		<!-- app js script  -->
 		<script src="assets/app/app.js"></script>
 
@@ -233,3 +239,6 @@
 		<script src="assets/app/addPost.js"></script>
 	</body>
 </html>
+
+
+<!-- video 25  => 35:00  -->

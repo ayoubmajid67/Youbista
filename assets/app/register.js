@@ -1,9 +1,4 @@
-const registerUrl = baseUrl + "/register";
 
-const errorRegisterMsgDom = document.getElementById("errorRegisterMsg");
-const registerBtn = document.getElementById("registerBtn");
-const closeRegisterBtn = document.getElementById("closeRegisterBtn");
-const registerForm = document.getElementById("registerForm");
 
 allowSubmission = true;
 

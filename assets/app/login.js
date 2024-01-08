@@ -1,13 +1,3 @@
-const loginUrl = baseUrl + "/login";
-
-const errorMsgDom = document.getElementById("errorMsg");
-const loginBtn = document.getElementById("loginBtn");
-const closeBtn = document.getElementById("closeBtn");
-const navBarBtnsParent = document.getElementById("navBarButtons");
-const alertPlaceholder = document.getElementById("liveAlertPlaceholder");
-
-const loginModal = document.getElementById("loginModal");
-const mainContent = document.getElementById("mainContent");
 
  
 loginModal.addEventListener("hide.bs.modal", function () {
@@ -50,7 +40,7 @@ function showLoginSuccessMsg(successMsg) {
 	errorMsgDom.innerText = successMsg;
 }
 
-const LoginForm = document.getElementById("loginForm");
+
 
 function delay(milliseconds) {
 	return new Promise((resolve) => setTimeout(resolve, milliseconds));

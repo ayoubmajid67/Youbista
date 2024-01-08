@@ -1,17 +1,11 @@
-const baseUrl = "https://tarmeezacademy.com/api/v1";
-const getPostsUrl = baseUrl + "/posts?limit=50";
-const backupProfileImg = "./assets/imgs/profile.png";
-const backupBodyImg = "./assets/imgs/body.jpg";
-
-// posts dom parent :
-
-let domPostsParent = document.getElementById("posts");
-
-async function getJsonPosts() {
+let lastPage = 2;
+let currentPage = 1;
+async function getJsonPosts(pageNumber) {
 	try {
-		let response = await axios.get(getPostsUrl);
+		let currentPageUrl = getPostsUrl + `?page=${pageNumber}`;
+		let response = await axios.get(currentPageUrl);
 		let data = await response.data;
-
+		if (pageNumber == 1) lastPage = data.meta.last_page;
 		return data.data;
 	} catch (error) {
 		console.log("Error while  Fetching the data : ", error);
@@ -114,10 +108,9 @@ function getMainBeforePosts() {
     </div>`;
 }
 
-async function PushPostToDom() {
-	domPostsParent.innerHTML = "";
-	domPostsParent.innerHTML += getMainBeforePosts();
-	let arrPosts = Array.from(await getJsonPosts());
+async function PushPostToDom(pageNumber) {
+	let arrPosts = Array.from(await getJsonPosts(pageNumber));
+	if (arrPosts.length == 0) return;
 	arrPosts.forEach((post) => {
 		// get post as html
 		htmlPost = postJsonToHtml(post);
@@ -126,9 +119,113 @@ async function PushPostToDom() {
 		domPostsParent.innerHTML += htmlPost;
 	});
 
-	// Initialize tooltips for the newly added posts
-	const newTooltipTriggerList = domPostsParent.querySelectorAll('[data-bs-toggle="tooltip"]');
-	newTooltipTriggerList.forEach((tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl));
+	initializeTooltips();
 }
 
-PushPostToDom();
+function checkScrollEnd() {
+	// Current scroll position
+	var scrollTop = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+
+	// Total height of the webpage
+	var totalHeight = document.documentElement.scrollHeight;
+
+	// Window height
+	var windowHeight = window.innerHeight;
+	// Check if the scroll position plus the window height equals or exceeds the total height
+	if (scrollTop + windowHeight >= totalHeight -80) return true;
+	return false;
+}
+// Throttle function to limit the rate of function execution
+function throttle(callback, wait) {
+    var timeout;
+    return function () {
+        var context = this;
+        var args = arguments;
+        if (!timeout) {
+            timeout = setTimeout(function () {
+                timeout = null;
+                callback.apply(context, args);
+            }, wait);
+        }
+    };
+}
+
+async function insertNewPageToDom() {
+    if (currentPage === 1) {
+        domPostsParent.innerHTML = "";
+        await PushPostToDom(currentPage++);
+    } else if (checkScrollEnd()) {
+        if (currentPage > lastPage) return;
+        await PushPostToDom(currentPage++);
+    }
+}
+
+// Applying throttling to the event listener
+var throttledInsertNewPageToDom = throttle(insertNewPageToDom, 500); 
+
+window.onload = insertNewPageToDom;
+window.onscroll = throttledInsertNewPageToDom;
+
+
+/*
+```javascript
+function throttle(callback, wait) {
+    var timeout;
+
+    return function () {
+        var context = this;
+        var args = arguments;
+
+        if (!timeout) {
+            timeout = setTimeout(function () {
+                timeout = null;
+                callback.apply(context, args);
+            }, wait);
+        }
+    };
+}
+```
+
+1. **`function throttle(callback, wait) { ... }`:**
+   - This is a function named `throttle` that takes two parameters:
+     - `callback`: The function to be throttled.
+     - `wait`: The minimum time (in milliseconds) to wait between consecutive invocations of the throttled function.
+
+2. **`var timeout;`:**
+   - This variable will be used to store the timeout ID returned by `setTimeout`. It keeps track of whether 
+   the function is currently throttled.
+
+3. **`return function () { ... };`:**
+   - The `throttle` function returns a new function (a closure). This returned function will be used 
+   as the throttled version of the original `callback`.
+
+4. **`var context = this;` and `var args = arguments;`:**
+   - These lines capture the current `this` value and the arguments passed to the throttled function.
+    This ensures that the original context (`this`) and arguments are preserved when invoking the `callback`.
+
+5. **`if (!timeout) { ... }`:**
+   - This condition checks if there is an existing timeout. If there is no existing timeout (`!timeout` is true),
+    the block of code inside the `if` statement is executed.
+
+6. **`timeout = setTimeout(function () { ... }, wait);`:**
+   - This line sets a new timeout using `setTimeout`. The purpose of this timeout 
+   is to delay the execution of the `callback` by the specified `wait` duration.
+
+7. **`function () { ... }`:**
+   - This is the callback function that will be executed after the timeout.
+
+8. **`timeout = null;`:**
+   - Once the timeout has triggered and the callback has been executed, `timeout`
+    is set back to `null`. This is crucial because it allows the next invocation 
+	to set a new timeout, controlling the rate at which the original function is called.
+
+9. **`callback.apply(context, args);`:**
+   - This line invokes the original `callback` using the `apply` method. The `apply`
+    method is used to set the `this` value (`context`) and pass the arguments (`args`) to the `callback`. 
+	This ensures that the `callback` is executed in the correct context with the correct arguments.
+
+In summary, the `throttle` function is designed to limit the rate at which 
+a function can be invoked. It achieves this by setting a timeout and ensuring that the original function is only called 
+once within the specified time interval. The captured `this` and `arguments` ensure that the context and arguments 
+of the original function are preserved during throttled invocations.
+ */
