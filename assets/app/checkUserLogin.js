@@ -7,6 +7,8 @@ function setUpUi(){
 		goToLoginPage();
       else 
 	  goToLoginDetailsPage(); 
+
+	  updatePostToLogin(); 
 		
 	}
 	else {
@@ -15,6 +17,8 @@ function setUpUi(){
 	
 	   if (currentPageName=='index.html')
 		removeAddPostContent();
+
+		 updatePostToLogout(); 
 	}
 }
 window.onload =setUpUi;

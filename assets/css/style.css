@@ -132,5 +132,8 @@ li a.customNavHover:hover {
   resize: none;
 }
 /* end comments style */
+.headerContent{
+  transition: 0.3s;
+}
 
 

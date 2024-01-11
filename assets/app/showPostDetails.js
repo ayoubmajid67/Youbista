@@ -87,7 +87,8 @@ class cPost {
 		}
 	}
 
-	constructor(profileImg, username, name, bodyImg, createdDate, title, bodyText, tags, commentsCount, commentsJson) {
+	constructor(id,profileImg, username, name, bodyImg, createdDate, title, bodyText, tags, commentsCount, commentsJson) {
+		this.id=id; 
 		this.profile = profileImg;
 		this.name = name;
 		this.username = username;
@@ -103,16 +104,40 @@ class cPost {
 		this.checkValidValues();
 	}
 }
+ 
+
 
 function postJsonToHtml(jsonPost) {
-	let PostObject = new cPost(jsonPost.author.profile_image, jsonPost.author.username, jsonPost.author.name, jsonPost.image, jsonPost.created_at, jsonPost.title, jsonPost.body, jsonPost.tags, jsonPost.comments_count, jsonPost.comments);
+	let PostObject = new cPost(jsonPost.id,jsonPost.author.profile_image, jsonPost.author.username, jsonPost.author.name, (bodyImage = jsonPost.image), jsonPost.created_at, jsonPost.title, jsonPost.body, jsonPost.tags, jsonPost.comments_count);
+	 
+    let user=JSON.parse(localStorage.getItem("user")); 
+    let  isUserPost=(user!=null && user.id==jsonPost.author.id);
+
+      
+    let headerContent=`
+    <div class="card-header d-flex align-items-end gap-2 position-relative  headerContent" >
+    <img src="${PostObject.profile}" alt="profile img" class="rounded-circle border border-2" style="width: 44px; height: 44px;  margin-left: 1px" />
+    <h4 class="text-dark"><span class="text-secondary">@</span>${PostObject.username}</h4>
+</div>
+    `
+     if(isUserPost){
+        let strPost=JSON.stringify(PostObject);
+        strPost=encodeURIComponent(strPost);
+     
+        headerContent=`
+        <div class="card-header d-flex align-items-end gap-2 position-relative bg-dark headerContent " >
+    <img src="${PostObject.profile}" alt="profile img" class="rounded-circle border border-2" style="width: 44px; height: 44px;  margin-left: 1px" />
+    <h4 class="text-white"><span class="text-warning">@</span>${PostObject.username}</h4>
+    <button class="btn btn-warning px-4 position-absolute fw-bold" id="editPostBtn" style="right: 7px; font-size: 1rem;" onclick="editPost('${strPost}')">Edit</button>
+
+</div>
+        `
+     }
+
 
 	htmlPost = `
             <div class="card w-100 shadow-sm" style="width: 18rem">
-                                <div class="card-header d-flex align-items-end gap-2">
-                                    <img src="${PostObject.profile}" alt="profile img" class="rounded-circle border border-2" style="width: 44px; height: 44px;  margin-left: 1px" />
-                                    <h4 class="text-secondary"><span class="text-black">@${PostObject.username}</span> ${PostObject.name}</h4>
-                                </div>
+                                ${headerContent}
                                 <img src="${PostObject.bodyImg}" class="img-fluid" alt="Post img " style="aspect-ratio: 16/9; object-fit: contain" />
                                 <h6 class="px-1 pt-1 text-end mt-2 me-1 ">${PostObject.createdDate}</h6>
                                 <div class="card-body pt-1">

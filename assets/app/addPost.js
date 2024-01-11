@@ -75,7 +75,7 @@ function clearPostModal() {
 	postTags.value = "";
 }
 
-function addPost() {}
+
 
 AddPostFrom.addEventListener("submit", async function (event) {
 	event.preventDefault();

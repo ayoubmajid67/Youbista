@@ -41,6 +41,18 @@ const addPostBtn = document.getElementById("addPostBtn");
 const closeAddPostBtn = document.getElementById("closeAddPostBtn");
 // const addCommentForm=document.getElementById('addComments');
 
+// update post resources : 
 
+const imgUpdateContainer = document.querySelector("#updatePostForm .imgContainer");
+const imgUpdateContainerContent = document.querySelector("#updatePostForm .imgContainer .content");
 
+const updatePostModal=document.getElementById('updatePostModal'); 
+const updatePostTitle = document.getElementById("updatePostTitle");
+const updatePostBody = document.getElementById("updatePostBody");
+const updatePostFileInput = document.getElementById("updatePostImg");
+const updatePostTags = document.getElementById("updatePostTags");
+const updatePostFrom = document.getElementById("updatePostForm");
+const updatePostBtn = document.getElementById("updatePostBtn");
+const updateClosePostBtn = document.getElementById("closeUpdatePostBtn");
+const updateImg=document.getElementById('updateImg');
 

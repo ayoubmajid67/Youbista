@@ -121,6 +121,38 @@
 			</div>
 		</div>
 		<!-- end  post modal   -->
+		<!-- start  update  post modal   -->
+		<div class="modal fade" id="updatePostModal" tabindex="-1" aria-hidden="true" style="margin-top: 50px; transform: scale(0.92);">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="AddPostTitle">Update Post</h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeUpdatePostBtn"></button>
+					</div>
+					<div class="modal-body">
+						<form id="updatePostForm" enctype="multipart/form-data">
+							<div class="mb-3">
+								<input type="text" class="form-control p-3 mb-2" id="updatePostTitle" placeholder="enter the Title" />
+								<textarea class="p-2 w-100" placeholder="what's are you thinking ? " id="updatePostBody" required></textarea>
+
+								<div class="imgContainer d-flex justify-content-center align-items-center p-2">
+									<div class="content text-center">
+										<h4 class="text-secondary">Choose a File</h4>
+										<img width="64" height="64" src="assets/icons/addPost.svg" alt="add-image" id="updateImg" />
+									</div>
+									<input type="file" class="my-3 p-2" id="updatePostImg" name="image" accept="image/*" onchange="changeFileBackground()" />
+								</div>
+
+								<input type="text" class="form-control p-3 mt-2" id="updatePostTags" placeholder="Tag1 Tag2 .." />
+							</div>
+
+							<button type="submit" class="btn btn-primary w-100 fw-bold" id="updatePostBtn" >update Post</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end  update post modal   -->
 
 		<!-- start navigation bar  -->
 
@@ -173,9 +205,10 @@
 				
 				<!-- start post  -->
 				<div class="card w-100 shadow-sm" style="width: 18rem">
-					<div class="card-header d-flex align-items-end gap-2">
+					<div class="card-header d-flex align-items-end gap-2 position-relative bg-dark ">
 						<img src="./assets/imgs/profile.png " alt="profile img" class="rounded-circle border border-2" style="width: 44px; height: 44px; margin-left: 1px" />
-						<h4 class="text-secondary"><span class="text-black">M</span>ajid</h4>
+						<h4 class="text-white"><span class="text-warning">M</span>ajid</h4>
+						<button class="btn btn-warning  px-4  position-absolute fw-bold " style="right: 7px; font-size: 1rem;" >Edit</button>
 					</div>
 					<img src="assets/imgs/body.jpg" class="img-fluid" alt="Post img " style="aspect-ratio: 16/9; object-fit: contain" />
 					<h6 class="px-1 pt-1 text-end mt-2 me-1 ">2 min</h6>
@@ -184,7 +217,7 @@
 						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 						<hr />
 						<div class="tagCommentContent d-flex justify-content-between align-items-center g-2">
-							<a href="#" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="<b>3</b>" data-bs-custom-class="custom-tooltip"> Comments</a>
+							<a href="#" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="<b>3</b>" data-bs-custom-class="custom-tooltip"> Comments</a>
 							<div class="tagContent d-flex gap-2 w-75 justify-content-end overflow-hidden">
 								<a href="#" class="btn  btn-outline-secondary">#BT</a>
 								<a href="#" class="btn  btn-outline-secondary">#BT</a>
@@ -238,6 +271,9 @@
 
 		<!-- add post js script  -->
 		<script src="assets/app/addPost.js"></script>
+ 
+		<!-- edit post script  -->
+		<script src="assets/app/updatePost.js"></script>
 
 		
 	</body>

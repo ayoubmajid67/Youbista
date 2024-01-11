@@ -59,6 +59,8 @@ LoginForm.addEventListener("submit", async function (event) {
 		goToLoginPage();
 	else
 	goToLoginDetailsPage();
+
+	updatePostToLogin(); 
 	
 		appendAlert("Logged in successfully", "info");
 		await delay(200);
@@ -66,6 +68,39 @@ LoginForm.addEventListener("submit", async function (event) {
 	}
 });
 
+function updatePostToLogin() {
+    
+
+	// Get all elements with class 'headerContent' under the element with id 'posts'
+	let postHeaders = document.querySelectorAll("#posts .headerContent");
+	 
+	// Iterate through each post header
+	postHeaders.forEach((header) => {
+		// Check if the header contains an element with id 'editPostBtn'
+		let editPostBtn = header.querySelector("#editPostBtn");
+
+
+		if (editPostBtn) {
+			 editPostBtn.style.display="block"; 
+             editPostBtn.style.visibility="visible"; 
+
+		   // change the background of the header :
+		   header.classList.add("bg-dark");
+
+		   //change the styling of the header  text :
+		   let headerTextContent = header.querySelector("h4");
+		   headerTextContent.classList.add("text-white");
+		   headerTextContent.classList.remove("text-dark");
+
+		   //   change the color of @ :
+		   let hashtag = headerTextContent.querySelector("span");
+
+		   hashtag.classList.add("text-warning");
+		   hashtag.classList.remove("text-secondary");
+			
+		}
+	});
+}
 
 function goToLoginPage() {
 	
