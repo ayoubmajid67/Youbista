@@ -69,7 +69,7 @@ function postJsonToHtml(jsonPost) {
                                     <h4 class="text-secondary"><span class="text-black">@${PostObject.username}</span> ${PostObject.name}</h4>
                                 </div>
                                 <img src="${PostObject.bodyImg}" class="img-fluid" alt="Post img " style="aspect-ratio: 16/9; object-fit: contain" />
-                                <h6 class="px-1 pt-1 text-end">${PostObject.createdDate}</h6>
+                                <h6 class="px-1 pt-1 text-end mt-2 me-1 ">${PostObject.createdDate}</h6>
                                 <div class="card-body pt-1">
                                     <h5 class="card-title">${PostObject.title}</h5>
                                     <p class="card-text">${PostObject.bodyText}.</p>
@@ -77,7 +77,7 @@ function postJsonToHtml(jsonPost) {
                                   
                                     <div class="tagCommentContent d-flex justify-content-between  align-items-center g-2">
 
-                                    <a href="#" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="<b>${PostObject.comments}</b>" data-bs-custom-class="custom-tooltip"> Comments</a>
+                                    <a  class="btn btn-primary" data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="<b>${PostObject.comments}</b>" data-bs-custom-class="custom-tooltip" onclick="showPostDetails(${jsonPost.id})"> Comments</a>
                                  <div class="tagContent d-flex gap-2 w-75 justify-content-end  overflow-hidden ">
                                              ${PostObject.tagContent}
                                  
@@ -103,7 +103,7 @@ function getMainBeforePosts() {
             <h5 class="card-title">Card title</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             <hr />
-            <a href="#" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="<b>3</b>" data-bs-custom-class="custom-tooltip"> Comments</a>
+            <a  class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="<b>3</b>" data-bs-custom-class="custom-tooltip"> Comments</a>
         </div>
     </div>`;
 }
@@ -150,6 +150,7 @@ function throttle(callback, wait) {
     };
 }
 
+
 async function insertNewPageToDom() {
     if (currentPage === 1) {
         domPostsParent.innerHTML = "";
@@ -163,9 +164,8 @@ async function insertNewPageToDom() {
 // Applying throttling to the event listener
 var throttledInsertNewPageToDom = throttle(insertNewPageToDom, 500); 
 
-window.onload = insertNewPageToDom;
 window.onscroll = throttledInsertNewPageToDom;
-
+window.addEventListener('load',insertNewPageToDom);
 
 /*
 ```javascript
@@ -229,3 +229,7 @@ a function can be invoked. It achieves this by setting a timeout and ensuring th
 once within the specified time interval. The captured `this` and `arguments` ensure that the context and arguments 
 of the original function are preserved during throttled invocations.
  */
+
+function showPostDetails(postId){
+ window.location=`postDetails.html?postId=${postId}`;     
+}

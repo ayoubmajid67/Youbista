@@ -90,7 +90,7 @@
 		<!-- end  register   model  -->
 
 		<!-- start  post modal   -->
-		<div class="modal fade" id="addPostModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 50px; transform: scale(0.92);">
+		<div class="modal fade" id="addPostModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 50px; transform: scale(0.92)">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -114,7 +114,7 @@
 								<input type="text" class="form-control p-3 mt-2" id="postTags" placeholder="Tag1 Tag2 .." />
 							</div>
 
-							<button type="submit" class="btn btn-primary w-100 fw-bold" id="addPostBtn" >Add Post</button>
+							<button type="submit" class="btn btn-primary w-100 fw-bold" id="addPostBtn">Add Post</button>
 						</form>
 					</div>
 				</div>
@@ -127,7 +127,7 @@
 		<div class="container d-flex justify-content-center position-sticky top-0 z-3 customMobile">
 			<nav class="navbar navbar-expand-lg bg-body-tertiary shadow rounded pt-2 col-12 col-lg-9">
 				<div class="container-fluid">
-					<a class="navbar-brand fw-medium fs-3 rounded">Majid</a>
+					<a class="navbar-brand fw-medium fs-3 rounded" href="./index.html">Majid</a>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
@@ -157,48 +157,78 @@
 
 		<!-- start main form  -->
 		<div class="container d-flex justify-content-center flex-column align-items-center" id="mainContent">
-			<figure class="w-100 d-flex justify-content-center" style="transition: 0.3s">
-				<div class="addPostFrom bg-light px-4 rounded d-grid gy-5 mt-4 col-12 col-lg-8" style="padding-top: 20px; margin-top: 30px; display: none !important">
-					<div class="input-group mb-3">
-						<img src="assets/imgs/profile.png" alt="" width="44px" height="44px" style="aspect-ratio: 4/4" class="rounded-5" />
-
-						<input type="text" class="form-control fs-5 rounded-5 px-3 py-2" placeholder="what's new today ?" data-bs-toggle="modal" data-bs-target="#addPostModal" />
-					</div>
-				</div>
-			</figure>
-		<!-- end main form  -->
-
+			<!-- end main form  -->
 			<!-- start posts  -->
-			<div id="posts" class="posts d-grid gy-5 mt-4 col-12 col-lg-8" style="row-gap: 25px">
+			<div id="posts" class="posts d-grid mt-4 col-12 col-lg-8">
 				
 				<!-- start post  -->
-				<div class="card w-100 shadow-sm" style="width: 18rem">
+				<div class="card w-100 shadow-sm" style="width: 18rem ; visibility: hidden;" >
 					<div class="card-header d-flex align-items-end gap-2">
 						<img src="./assets/imgs/profile.png " alt="profile img" class="rounded-circle border border-2" style="width: 44px; height: 44px; margin-left: 1px" />
 						<h4 class="text-secondary"><span class="text-black">M</span>ajid</h4>
 					</div>
 					<img src="assets/imgs/body.jpg" class="img-fluid" alt="Post img " style="aspect-ratio: 16/9; object-fit: contain" />
-					<h6 class="px-1 pt-1 text-end mt-2 me-1 ">2 min</h6>
+					<h6 class="px-1 pt-1 text-end mt-2 me-1">2 min</h6>
 					<div class="card-body pt-1">
 						<h5 class="card-title">Card title</h5>
 						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 						<hr />
 						<div class="tagCommentContent d-flex justify-content-between align-items-center g-2">
-							<a href="#" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="<b>3</b>" data-bs-custom-class="custom-tooltip"> Comments</a>
+							<a  class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="<b>3</b>" data-bs-custom-class="custom-tooltip"> Comments</a>
 							<div class="tagContent d-flex gap-2 w-75 justify-content-end overflow-hidden">
-								<a href="#" class="btn  btn-outline-secondary">#BT</a>
-								<a href="#" class="btn  btn-outline-secondary">#BT</a>
-								<a href="#" class="btn  btn-outline-secondary">#BT</a>
+								<a  class="btn  btn-outline-secondary">#BT</a>
+								<a  class="btn  btn-outline-secondary">#BT</a>
+								<a  class="btn  btn-outline-secondary">#BT</a>
 							</div>
 						</div>
 					</div>
+					<hr />
+					<div class="comments px-4 d-flex flex-column gap-3 m-2" style="padding-top: 10px">
+						<div class="box d-flex gap-4 justify-content-around p-2 shadow rounded" style="overflow: hidden">
+                            <div class="userInfo d-flex flex-column gap-2 align-items-center">
+								<img src="assets/imgs/profile.png" alt="" width="44px" height="44px" style="aspect-ratio: 4/4" class="rounded-5" />
+				       		    <h6>username</h6>
+							</div>
+  
+                     <div class="commentContent">
+
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi sunt in eos animi dignissimos perferendis nisi, ratione omnis id numquam doloribus, deleniti aspernatur. Nostrum atque dolorum eius, vitae nobis aperiam!</p>
+                        <div class="DurationCount text-end" >2 min </div>
+                     </div>
+                             
+
+						</div>
+						
+					</div>
+
+					<!-- start add comment  -->
+					<div id="addComments" class="position-sticky bottom-0 " style="width: 100%;">
+						<div class="input-group d-flex gap-2 justify-content-around p-3 bg-body rounded align-items-center" style="box-shadow: 0px -5px 3px rgba(122, 167, 191, 0.215)">
+							<img src="assets/imgs/profile.png" alt="" width="44px" height="44px" style="aspect-ratio: 4/4" class="rounded-5" />
+                            <div class="DurationCount text-end" >2 min</div>         
+							<form  id="commentForm">
+								<textarea type="text" class="form-control fs-6 rounded px-3 py-2" placeholder="write a comment " rows="3" oninput="autoResize(this)" ></textarea>
+								<input  type="submit" class="btn btn-secondary flex-grow-1 " value="Add" ></input>
+							</form>			
+						</div>
+					</div>
+				<!-- end add comment  -->
 				</div>
-			<!-- end  post  -->
-				
-				
-
-
+                
+				<!-- end  post  -->
 			</div>
+			<script>
+				function autoResize(textarea) {
+					// Set the rows attribute to 1 temporarily to get the scrollHeight
+					textarea.rows = 1;
+					let rows = Math.floor(textarea.scrollHeight / 24);
+					if (rows <= 22) {
+						textarea.rows = rows;
+					} else {
+						textarea.rows = 22;
+					}
+				}
+			</script>
 		</div>
 		<!-- end posts  -->
 
@@ -217,12 +247,8 @@
 		<!-- import axios library  -->
 		<script src="../node_modules/axios/dist/axios.min.js"></script>
 
-
 		<!-- source js script  -->
 		<script src="assets/app/source.js"></script>
-
-		<!-- app js script  -->
-		<script src="assets/app/app.js"></script>
 
 		<!-- login js script   -->
 		<script src="assets/app/login.js"></script>
@@ -230,17 +256,17 @@
 		<!-- logout js script  -->
 		<script src="assets/app/logout.js"></script>
 
-        <!-- import check user login script  -->
+		<!-- import check user login script  -->
 		<script src="assets/app/checkUserLogin.js"></script>
 
 		<!-- register js script  -->
 		<script src="assets/app/register.js"></script>
 
-		<!-- add post js script  -->
-		<script src="assets/app/addPost.js"></script>
+		<!-- show post details script  -->
+		<script src="assets/app/showPostDetails.js"></script>
 
-		
+		<!-- add comment js script  -->
+		<script src="assets/app/addComment.js"></script>
+
 	</body>
 </html>
-
-

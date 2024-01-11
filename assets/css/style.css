@@ -104,3 +104,33 @@ li a.customNavHover:hover {
 }
 
 /* end add Post */
+
+/* start  comments style */
+#comments{ 
+  margin-bottom: 15px;
+  transition: 0.4s;
+}
+@media (max-width :767px){
+#comments .box{
+
+  flex-direction: column ;
+}
+   
+}
+
+#comments .box{
+  border-bottom: 1px solid rgba(8, 134, 128, 0.108) !important;
+  gap: 0 !important; 
+}
+#comments p{
+  color: #464545; 
+  padding-left: 40px;
+  
+}
+
+#addComments  textarea{
+  resize: none;
+}
+/* end comments style */
+
+

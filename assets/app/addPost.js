@@ -60,7 +60,7 @@ async function handleAddPost() {
 		return [true, postJsonData];
 	} catch (errorMsg) {
 		await appendAlert(errorMsg, "danger");
-          clearAlert();
+		clearAlert();
 		return [false, ""];
 	}
 }
@@ -75,10 +75,13 @@ function clearPostModal() {
 	postTags.value = "";
 }
 
+function addPost() {}
+
 AddPostFrom.addEventListener("submit", async function (event) {
 	event.preventDefault();
-
+	addPostBtn.setAttribute("disabled", true);
 	let [status, postJson] = await handleAddPost();
+	addPostBtn.removeAttribute("disabled");
 	if (status) {
 		closeAddPostBtn.click();
 
@@ -86,7 +89,7 @@ AddPostFrom.addEventListener("submit", async function (event) {
 
 		domPostsParent.insertAdjacentHTML("afterbegin", htmlPost);
 		initializeTooltips();
-	   clearPostModal(); 
+		clearPostModal();
 		clearAlert();
 	}
 });

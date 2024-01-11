@@ -18,16 +18,22 @@ function removeUserInfoFromLocalStorage() {
 	}
 }
 function removeAddPostContent() {
-	mainContent.firstElementChild.innerHTML="";
+	mainContent.firstElementChild.innerHTML = "";
 }
 async function logout() {
+	let currentPageName = window.location.pathname.split("/").pop().toLowerCase();
+
 	removeUserInfoFromLocalStorage();
 	innerLogoutButtons();
-	removeAddPostContent();
+	if (currentPageName == "index.html") removeAddPostContent();
+	else {
+		addCommentForm = document.getElementById("addComments");
+		addCommentForm.innerHTML = "";
+	}
+
 	await delay(200);
 	appendAlert("Logged out successfully", "danger");
 
 	await delay(100);
 	await clearAlert();
 }
-

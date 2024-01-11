@@ -28,14 +28,19 @@ const registerBtn = document.getElementById("registerBtn");
 const closeRegisterBtn = document.getElementById("closeRegisterBtn");
 const registerForm = document.getElementById("registerForm");
 
-
-// add post resource : 
+// add post resource :
 const imgContainer = document.querySelector("#addPostForm .imgContainer");
 const imgContainerContent = document.querySelector("#addPostForm .imgContainer .content");
 
-const postTitle=document.getElementById("postTitle"); 
+const postTitle = document.getElementById("postTitle");
 const postBody = document.getElementById("postBody");
 const postFileInput = document.getElementById("postImg");
 const postTags = document.getElementById("postTags");
 const AddPostFrom = document.getElementById("addPostForm");
+const addPostBtn = document.getElementById("addPostBtn");
 const closeAddPostBtn = document.getElementById("closeAddPostBtn");
+// const addCommentForm=document.getElementById('addComments');
+
+
+
+
