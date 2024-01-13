@@ -33,9 +33,7 @@ function fillDateToModal(postInfo) {
 function clearUpdateModal() {
 	imgUpdateContainer.style.backgroundImage = `none`;
 	imgUpdateContainerContent.style.display = "block";
-	updatePostTitle.value = "";
-	updatePostBody.value = "";
-	updatePostTags.value = "";
+	updatePostFrom.reset();
 }
 
 let postObject;
@@ -94,8 +92,8 @@ async function handleUpdatePost() {
 
 		return [true, postJsonData];
 	} catch (errorMsg) {
-		await appendAlert(errorMsg, "danger");
-		clearAlert();
+		appendAlert(errorMsg, "danger");
+		await clearAlert();
 		return [false, ""];
 	}
 }

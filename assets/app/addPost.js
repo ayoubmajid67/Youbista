@@ -70,9 +70,8 @@ async function handleAddPost() {
 function clearPostModal() {
 	imgContainer.style.backgroundImage = `none`;
 	imgContainerContent.style.display = "block";
-	postTitle.value = "";
-	postBody.value = "";
-	postTags.value = "";
+AddPostFrom.reset(); 
+
 }
 
 

@@ -56,3 +56,7 @@ const updatePostBtn = document.getElementById("updatePostBtn");
 const updateClosePostBtn = document.getElementById("closeUpdatePostBtn");
 const updateImg=document.getElementById('updateImg');
 
+
+// delete post resources : 
+const deletePostModal=document.getElementById('deletePostModal'); 
+const deletePostBtn=document.getElementById('deletePostBtn'); 

@@ -28,12 +28,16 @@ function updatePostToLogout() {
 	postHeaders.forEach((header) => {
 		// Check if the header contains an element with id 'editPostBtn'
 		let editPostBtn = header.querySelector("#editPostBtn");
+		let deletePostBtn = header.querySelector("#deletePostBtn");
 
-		if (editPostBtn) {
+		if (editPostBtn && deletePostBtn) {
 		
 			 
                   editPostBtn.style.display="none"; 
                   editPostBtn.style.visibility="hidden"; 
+
+                  deletePostBtn.style.display="none"; 
+                  deletePostBtn.style.visibility="hidden"; 
 				// change the background of the header :
 				header.classList.remove("bg-dark");
 

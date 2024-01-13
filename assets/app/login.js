@@ -1,13 +1,13 @@
 
  
-loginModal.addEventListener("hide.bs.modal", function () {
-	clearLoginFrom();
-});
+// loginModal.addEventListener("hide.bs.modal", function () {
+// 	clearLoginFrom();
+// });
 
-function clearLoginFrom() {
-	errorMsgDom.innerHTML = "";
-	document.getElementById("passwordLogin").value = "";
-}
+// function clearLoginFrom() {
+// 	errorMsgDom.innerHTML = "";
+// 	document.getElementById("passwordLogin").value = "";
+// }
 
 let allowSubmission = true;
 
@@ -78,11 +78,15 @@ function updatePostToLogin() {
 	postHeaders.forEach((header) => {
 		// Check if the header contains an element with id 'editPostBtn'
 		let editPostBtn = header.querySelector("#editPostBtn");
+		let deletePostBtn=header.querySelector('#deletePostBtn'); 
 
 
-		if (editPostBtn) {
+		if (editPostBtn && deletePostBtn) {
 			 editPostBtn.style.display="block"; 
              editPostBtn.style.visibility="visible"; 
+
+			 deletePostBtn.style.display="block"; 
+             deletePostBtn.style.visibility="visible"; 
 
 		   // change the background of the header :
 		   header.classList.add("bg-dark");

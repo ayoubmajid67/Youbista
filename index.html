@@ -90,7 +90,7 @@
 		<!-- end  register   model  -->
 
 		<!-- start  post modal   -->
-		<div class="modal fade" id="addPostModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 50px; transform: scale(0.92);">
+		<div class="modal fade" id="addPostModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 50px; transform: scale(0.92)">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -114,7 +114,7 @@
 								<input type="text" class="form-control p-3 mt-2" id="postTags" placeholder="Tag1 Tag2 .." />
 							</div>
 
-							<button type="submit" class="btn btn-primary w-100 fw-bold" id="addPostBtn" >Add Post</button>
+							<button type="submit" class="btn btn-primary w-100 fw-bold" id="addPostBtn">Add Post</button>
 						</form>
 					</div>
 				</div>
@@ -122,7 +122,7 @@
 		</div>
 		<!-- end  post modal   -->
 		<!-- start  update  post modal   -->
-		<div class="modal fade" id="updatePostModal" tabindex="-1" aria-hidden="true" style="margin-top: 50px; transform: scale(0.92);">
+		<div class="modal fade" id="updatePostModal" tabindex="-1" aria-hidden="true" style="margin-top: 50px; transform: scale(0.92)">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -146,13 +146,32 @@
 								<input type="text" class="form-control p-3 mt-2" id="updatePostTags" placeholder="Tag1 Tag2 .." />
 							</div>
 
-							<button type="submit" class="btn btn-primary w-100 fw-bold" id="updatePostBtn" >update Post</button>
+							<button type="submit" class="btn btn-primary w-100 fw-bold" id="updatePostBtn">update Post</button>
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
 		<!-- end  update post modal   -->
+
+		<!-- start delete post modal  -->
+
+		<div class="modal fade" id="deletePostModal" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="exampleModalLabel">Delete Post</h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">are you sure you want to delete this post ?</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-danger" id="deletePostBtn">Delete</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end delete post modal  -->
 
 		<!-- start navigation bar  -->
 
@@ -198,20 +217,25 @@
 					</div>
 				</div>
 			</figure>
-		<!-- end main form  -->
+			<!-- end main form  -->
 
 			<!-- start posts  -->
-			<div id="posts" class="posts d-grid gy-5 mt-4 col-12 col-lg-8" style="row-gap: 25px">
-				
+			<div id="posts" class="posts d-grid gy-5 mt-4 col-12 col-lg-8" style="row-gap: 25px; transition : 0.3s;">
 				<!-- start post  -->
 				<div class="card w-100 shadow-sm" style="width: 18rem">
-					<div class="card-header d-flex align-items-end gap-2 position-relative bg-dark ">
-						<img src="./assets/imgs/profile.png " alt="profile img" class="rounded-circle border border-2" style="width: 44px; height: 44px; margin-left: 1px" />
-						<h4 class="text-white"><span class="text-warning">M</span>ajid</h4>
-						<button class="btn btn-warning  px-4  position-absolute fw-bold " style="right: 7px; font-size: 1rem;" >Edit</button>
+					<div class="card-header d-flex align-items-end gap-2 bg-dark">
+						<div class="userInfo d-flex align-items-end gap-2">
+							<img src="./assets/imgs/profile.png " alt="profile img" class="rounded-circle border border-2" style="width: 44px; height: 44px; margin-left: 1px" />
+							<h4 class="text-white"><span class="text-warning">M</span>ajid</h4>
+						</div>
+
+						<div class="postButtons d-flex justify-content-end flex-grow-1 gap-3">
+							<button class="btn btn-warning px-23 fw-bold" id="editPostBtn" style="font-size: 1rem" onclick="deletePost(this)">Delete</button>
+							<button class="btn btn-warning px-4 fw-bold" id="editPostBtn" style="font-size: 1rem" onclick="deletePost(this)">Edit</button>
+						</div>
 					</div>
 					<img src="assets/imgs/body.jpg" class="img-fluid" alt="Post img " style="aspect-ratio: 16/9; object-fit: contain" />
-					<h6 class="px-1 pt-1 text-end mt-2 me-1 ">2 min</h6>
+					<h6 class="px-1 pt-1 text-end mt-2 me-1">2 min</h6>
 					<div class="card-body pt-1">
 						<h5 class="card-title">Card title</h5>
 						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -219,18 +243,14 @@
 						<div class="tagCommentContent d-flex justify-content-between align-items-center g-2">
 							<a href="#" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="<b>3</b>" data-bs-custom-class="custom-tooltip"> Comments</a>
 							<div class="tagContent d-flex gap-2 w-75 justify-content-end overflow-hidden">
-								<a href="#" class="btn  btn-outline-secondary">#BT</a>
-								<a href="#" class="btn  btn-outline-secondary">#BT</a>
-								<a href="#" class="btn  btn-outline-secondary">#BT</a>
+								<a href="#" class="btn btn-outline-secondary">#BT</a>
+								<a href="#" class="btn btn-outline-secondary">#BT</a>
+								<a href="#" class="btn btn-outline-secondary">#BT</a>
 							</div>
 						</div>
 					</div>
 				</div>
-			<!-- end  post  -->
-				
-				
-
-
+				<!-- end  post  -->
 			</div>
 		</div>
 		<!-- end posts  -->
@@ -250,7 +270,6 @@
 		<!-- import axios library  -->
 		<script src="../node_modules/axios/dist/axios.min.js"></script>
 
-
 		<!-- source js script  -->
 		<script src="assets/app/source.js"></script>
 
@@ -263,7 +282,7 @@
 		<!-- logout js script  -->
 		<script src="assets/app/logout.js"></script>
 
-        <!-- import check user login script  -->
+		<!-- import check user login script  -->
 		<script src="assets/app/checkUserLogin.js"></script>
 
 		<!-- register js script  -->
@@ -271,12 +290,11 @@
 
 		<!-- add post js script  -->
 		<script src="assets/app/addPost.js"></script>
- 
+
 		<!-- edit post script  -->
 		<script src="assets/app/updatePost.js"></script>
 
-		
+		<!-- delete post script   -->
+		<script src="assets/app/deletePost.js"></script>
 	</body>
 </html>
-
-

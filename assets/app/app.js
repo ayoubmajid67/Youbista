@@ -85,17 +85,21 @@ function postJsonToHtml(jsonPost) {
         strPost=encodeURIComponent(strPost);
      
         headerContent=`
-        <div class="card-header d-flex align-items-end gap-2 position-relative bg-dark headerContent " >
+        <div class="card-header d-flex align-items-end gap-2 bg-dark headerContent " style="padding-right: 7px;" >
     <img src="${PostObject.profile}" alt="profile img" class="rounded-circle border border-2" style="width: 44px; height: 44px;  margin-left: 1px" />
     <h4 class="text-white"><span class="text-warning">@</span>${PostObject.username}</h4>
-    <button class="btn btn-warning px-4 position-absolute fw-bold" id="editPostBtn" style="right: 7px; font-size: 1rem;" onclick="editPost('${strPost}')">Edit</button>
+    <div class="postButtons d-flex justify-content-end flex-grow-1 gap-3 "">
+    <button class="btn btn-warning px-23 fw-bold" id="deletePostBtn" style=" font-size: 1rem;" onclick="deletePost(this.parentElement.parentElement.parentElement,${PostObject.id})">Delete</button>
+    <button class="btn btn-warning px-4  fw-bold" id="editPostBtn" style="font-size: 1rem;" onclick="editPost('${strPost}')">Edit</button>
+    </div>
+  
 
 </div>
         `
      }
     
     htmlPost = `
-            <div class="card w-100 shadow-sm" style="width: 18rem">
+            <div class="card w-100 shadow-sm" style="width: 18rem;transition : 0.4s;">
                                 ${headerContent}
                                 <img src="${PostObject.bodyImg}" class="img-fluid" alt="Post img " style="aspect-ratio: 16/9; object-fit: contain" />
                                 <h6 class="px-1 pt-1 text-end mt-2 me-1 ">${PostObject.createdDate}</h6>
