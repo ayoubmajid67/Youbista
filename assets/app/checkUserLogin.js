@@ -5,7 +5,10 @@ function setUpUi(){
 	if (localStorage.getItem("userToken") && localStorage.getItem("user")) {
 		if(currentPageName=='index.html')
 		goToLoginPage();
-      else 
+	  else if(currentPageName=='profile.html')
+	  goToProfilePage();
+	
+	  else 
 	  goToLoginDetailsPage(); 
 
 	  updatePostToLogin(); 

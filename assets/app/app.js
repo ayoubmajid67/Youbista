@@ -8,7 +8,6 @@ async function getJsonPosts(pageNumber) {
 		if (pageNumber == 1) lastPage = data.meta.last_page;
 		return data.data;
 	} catch (error) {
-		console.log("Error while  Fetching the data : ", error);
 		throw error;
 	}
 }
@@ -76,7 +75,7 @@ function postJsonToHtml(jsonPost) {
       
     let headerContent=`
     <div class="card-header d-flex align-items-end gap-2 position-relative  headerContent" >
-    <img src="${PostObject.profile}" alt="profile img" class="rounded-circle border border-2" style="width: 44px; height: 44px;  margin-left: 1px" />
+    <img src="${PostObject.profile}" alt="profile img" class="rounded-circle border border-2" style="width: 44px; height: 44px;  margin-left: 1px" onclick="showUserProfile(${jsonPost.author.id})" />
     <h4 class="text-dark"><span class="text-secondary">@</span>${PostObject.username}</h4>
 </div>
     `
@@ -142,15 +141,24 @@ function getMainBeforePosts() {
 }
 
 async function PushPostToDom(pageNumber) {
-	let arrPosts = Array.from(await getJsonPosts(pageNumber));
-	if (arrPosts.length == 0) return;
-	arrPosts.forEach((post) => {
-		// get post as html
-		htmlPost = postJsonToHtml(post);
+    try{
+        let arrPosts = Array.from(await getJsonPosts(pageNumber));
+        if (arrPosts.length == 0) return;
+        arrPosts.forEach((post) => {
+            // get post as html
+            htmlPost = postJsonToHtml(post);
+    
+            // push post to dom
+            domPostsParent.innerHTML += htmlPost;
+        });
 
-		// push post to dom
-		domPostsParent.innerHTML += htmlPost;
-	});
+    }catch(error){
+        await delay(20);
+        appendAlert(error, "danger");
+        await clearAlert();
+
+    }
+	
 
 	initializeTooltips();
 }
@@ -266,4 +274,10 @@ of the original function are preserved during throttled invocations.
 
 function showPostDetails(postId){
  window.location=`postDetails.html?postId=${postId}`;     
+}
+function showUserProfile(userId=""){
+    
+  if(userId=="")  window.location=`profile.html`; 
+  else  
+    window.location=`profile.html?userId=${userId}`;    
 }

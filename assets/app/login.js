@@ -1,5 +1,3 @@
-
- 
 // loginModal.addEventListener("hide.bs.modal", function () {
 // 	clearLoginFrom();
 // });
@@ -40,7 +38,6 @@ function showLoginSuccessMsg(successMsg) {
 	errorMsgDom.innerText = successMsg;
 }
 
-
 function delay(milliseconds) {
 	return new Promise((resolve) => setTimeout(resolve, milliseconds));
 }
@@ -54,14 +51,15 @@ LoginForm.addEventListener("submit", async function (event) {
 
 		closeBtn.click();
 		errorMsgDom.innerHTML = "";
-		 let  currentPageName=window.location.pathname.split('/').pop().toLowerCase();
-		if(currentPageName=='index.html')
-		goToLoginPage();
-	else
-	goToLoginDetailsPage();
+		let currentPageName = window.location.pathname.split("/").pop().toLowerCase();
+		if (currentPageName == "index.html") goToLoginPage();
+		
+		else if(currentPageName=='profile.html') goToProfilePage(); 
 
-	updatePostToLogin(); 
-	
+		else  goToLoginDetailsPage();
+
+		updatePostToLogin();
+
 		appendAlert("Logged in successfully", "info");
 		await delay(200);
 		await clearAlert();
@@ -69,45 +67,40 @@ LoginForm.addEventListener("submit", async function (event) {
 });
 
 function updatePostToLogin() {
-    
-
 	// Get all elements with class 'headerContent' under the element with id 'posts'
 	let postHeaders = document.querySelectorAll("#posts .headerContent");
-	 
+
 	// Iterate through each post header
 	postHeaders.forEach((header) => {
 		// Check if the header contains an element with id 'editPostBtn'
 		let editPostBtn = header.querySelector("#editPostBtn");
-		let deletePostBtn=header.querySelector('#deletePostBtn'); 
-
+		let deletePostBtn = header.querySelector("#deletePostBtn");
 
 		if (editPostBtn && deletePostBtn) {
-			 editPostBtn.style.display="block"; 
-             editPostBtn.style.visibility="visible"; 
+			editPostBtn.style.display = "block";
+			editPostBtn.style.visibility = "visible";
 
-			 deletePostBtn.style.display="block"; 
-             deletePostBtn.style.visibility="visible"; 
+			deletePostBtn.style.display = "block";
+			deletePostBtn.style.visibility = "visible";
 
-		   // change the background of the header :
-		   header.classList.add("bg-dark");
+			// change the background of the header :
+			header.classList.add("bg-dark");
 
-		   //change the styling of the header  text :
-		   let headerTextContent = header.querySelector("h4");
-		   headerTextContent.classList.add("text-white");
-		   headerTextContent.classList.remove("text-dark");
+			//change the styling of the header  text :
+			let headerTextContent = header.querySelector("h4");
+			headerTextContent.classList.add("text-white");
+			headerTextContent.classList.remove("text-dark");
 
-		   //   change the color of @ :
-		   let hashtag = headerTextContent.querySelector("span");
+			//   change the color of @ :
+			let hashtag = headerTextContent.querySelector("span");
 
-		   hashtag.classList.add("text-warning");
-		   hashtag.classList.remove("text-secondary");
-			
+			hashtag.classList.add("text-warning");
+			hashtag.classList.remove("text-secondary");
 		}
 	});
 }
 
 function goToLoginPage() {
-	
 	let user = JSON.parse(localStorage.getItem("user"));
 	let profileImgUrl = user.profile_image;
 	if (profileImgUrl instanceof Object) {
@@ -120,19 +113,30 @@ function goToLoginPage() {
 
 	let strFormContent = `	<div class="addPostFrom bg-light  px-4 rounded d-grid gy-5 mt-4   col-12 col-lg-8 "  style="padding-top: 20px; margin-top: 30px;">
 	<div class="input-group mb-3 ">
-		<img src="assets/imgs/profile.png" alt="" width="44px" height="44px"  style="aspect-ratio: 4/4;" class="rounded-5">
+		<img src="${profileImgUrl}" alt="" width="44px" height="44px"  style="aspect-ratio: 4/4;" class="rounded-5" onclick="showUserProfile()" >
 	   
 	   <input type="text" class="form-control fs-5 rounded-5 px-3 py-2 " placeholder="what's new today ?"   data-bs-toggle="modal" data-bs-target="#addPostModal"> 
 	   
 	 </div>	
    </div>`;
 
-   mainContent.firstElementChild.innerHTML=strFormContent;
+	mainContent.firstElementChild.innerHTML = strFormContent;
 }
+function goToProfilePage(){
+	let user = JSON.parse(localStorage.getItem("user"));
+	let profileImgUrl = user.profile_image;
+	if (profileImgUrl instanceof Object) {
+		profileImgUrl = backupProfileImg;
+	}
+	navBarBtnsParent.innerHTML = `
+
+    <img src="${profileImgUrl}" alt="profile img" class="rounded-circle border border-2  me-3" style="width: 44px; height: 44px;  margin-left: 1px" />
+    <button type="button" class="btn btn-outline-danger  me-2" onclick="logout()">Logout</button>`;
+}
+
 function getCommentForm() {
 	if (localStorage.getItem("user") && localStorage.getItem("userToken")) {
 		let user = JSON.parse(localStorage.getItem("user"));
-
 		let profileImg = user.profile_image;
 
 		if (profileImg instanceof Object) {
@@ -143,7 +147,7 @@ function getCommentForm() {
     <!-- start add comment  -->
     <div id="addComments" class="position-sticky bottom-0" style="width: 100%">
         <div class="input-group d-flex gap-2 justify-content-around p-3 bg-body rounded align-items-baseline" style="box-shadow: 0px -5px 3px rgba(122, 167, 191, 0.215)">
-            <img src="${profileImg}" alt="" width="44px" height="44px" style="aspect-ratio: 4/4" class="rounded-5" />
+            <img src="${profileImg}" alt="" width="44px" height="44px" style="aspect-ratio: 4/4" class="rounded-5"  onclick="showUserProfile()"/>
             <form  id="commentForm " class="flex-grow-1 position-relative d-flex flex-column" onsubmit="return addComment();">
 								<textarea type="text" class="form-control fs-6 rounded px-3 py-2 " placeholder="write a comment " rows="2" oninput="autoResize(this)" required></textarea>
 								<input  type="submit" class="btn btn-primary align-self-end me-1 mt-1" value="Add" ></input>
@@ -157,10 +161,9 @@ function getCommentForm() {
 		`;
 	}
 }
-function goToLoginDetailsPage(){
-
-	let  addCommentForm=document.getElementById('addComments'); 
-    addCommentForm.innerHTML=getCommentForm();
+function goToLoginDetailsPage() {
+	let addCommentForm = document.getElementById("addComments");
+	addCommentForm.innerHTML = getCommentForm();
 
 	let user = JSON.parse(localStorage.getItem("user"));
 	let profileImgUrl = user.profile_image;
@@ -171,9 +174,7 @@ function goToLoginDetailsPage(){
 
     <img src="${profileImgUrl}" alt="profile img" class="rounded-circle border border-2  me-3" style="width: 44px; height: 44px;  margin-left: 1px" />
     <button type="button" class="btn btn-outline-danger  me-2" onclick="logout()">Logout</button>`;
-	
 }
-
 
 async function handleLogin() {
 	let username = document.getElementById("usernameLogin").value;
@@ -215,5 +216,3 @@ async function clearAlert() {
 	alertPlaceholder.innerHTML = "";
 	alertPlaceholder.style.opacity = 1;
 }
-
-

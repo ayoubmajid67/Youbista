@@ -122,7 +122,7 @@
 		</div>
 		<!-- end  post modal   -->
 		<!-- start  update  post modal   -->
-		<div class="modal fade" id="updatePostModal" tabindex="-1" aria-hidden="true" style="margin-top: 50px; transform: scale(0.92)">
+		<div class="modal fade" id="updatePostModal" tabindex="-1" aria-hidden="true" style="margin-top: 50px; transform: scale(0.92);">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -146,15 +146,14 @@
 								<input type="text" class="form-control p-3 mt-2" id="updatePostTags" placeholder="Tag1 Tag2 .." />
 							</div>
 
-							<button type="submit" class="btn btn-primary w-100 fw-bold" id="updatePostBtn">update Post</button>
+							<button type="submit" class="btn btn-primary w-100 fw-bold" id="updatePostBtn" >update Post</button>
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
 		<!-- end  update post modal   -->
-
-		<!-- start delete post modal  -->
+        <!-- start delete post modal  -->
 
 		<div class="modal fade" id="deletePostModal" tabindex="-1" aria-hidden="true">
 			<div class="modal-dialog">
@@ -178,14 +177,14 @@
 		<div class="container d-flex justify-content-center position-sticky top-0 z-3 customMobile">
 			<nav class="navbar navbar-expand-lg bg-body-tertiary shadow rounded pt-2 col-12 col-lg-9">
 				<div class="container-fluid">
-					<a class="navbar-brand fw-medium fs-3 rounded">Majid</a>
+					<a class="navbar-brand fw-medium fs-3 rounded" href="./index.html">Majid</a>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav me-auto mb-2 mb-lg-0 px-2">
 							<li class="nav-item">
-								<a class="nav-link customNavHover fs-5" aria-current="page" onclick="scrollToTop();">Home</a>
+								<a class="nav-link customNavHover fs-5" aria-current="page" href="index.html">Home</a>
 							</li>
 
 							<li class="nav-item">
@@ -206,76 +205,54 @@
 
 		<!--start   main content  -->
 
-		<!-- start main form  -->
 		<div class="container d-flex justify-content-center flex-column align-items-center" id="mainContent">
-			<figure class="w-100 d-flex justify-content-center" style="transition: 0.3s">
-				<div class="addPostFrom bg-light px-4 rounded d-grid gy-5 mt-4 col-12 col-lg-8" style="padding-top: 20px; margin-top: 30px; display: none !important">
-					<div class="input-group mb-3">
-						<img src="assets/imgs/profile.png" alt="" width="44px" height="44px" style="aspect-ratio: 4/4" class="rounded-5" />
-
-						<input type="text" class="form-control fs-5 rounded-5 px-3 py-2" placeholder="what's new today ?" data-bs-toggle="modal" data-bs-target="#addPostModal" />
+				
+            <!-- start profile section  -->
+             <div class="profile  bg-light shadow-sm d-flex mt-5 mb-3 align-items-center gap-4 flex-wrap p-2  py-3 rounded-2 w-75">
+                <div class="userInfo d-flex gap-5 p-3 py-4 rounded">
+					<img src="assets/imgs/profile.png" alt=""  width="100px" height="100px" class="rounded-circle">
+					<div class="userContent d-flex flex-column gap-2 ">
+						<h5 id="gmail"></h5>
+						 <h5 id="username"><span>@</span></h5>
+						 <h5 id="name" ></h5>
 					</div>
+
 				</div>
-			</figure>
-			<!-- end main form  -->
-
-			<!-- start posts  -->
-			<div id="posts" class="posts d-grid gy-5 mt-4 col-12 col-lg-8" style="row-gap: 25px; transition : 0.3s;">
-				<!-- start post  -->
-				<div class="card w-100 shadow-sm" style="width: 18rem">
-					<div class="card-header d-flex align-items-end gap-2 bg-dark">
-						<div class="userInfo d-flex align-items-end gap-2">
-							<img src="./assets/imgs/profile.png " alt="profile img" class="rounded-circle border border-2" style="width: 44px; height: 44px; margin-left: 1px" />
-							<h4 class="text-white"><span class="text-warning">M</span>ajid</h4>
-						</div>
-
-						<div class="postButtons d-flex justify-content-end flex-grow-1 gap-3">
-							<button class="btn btn-warning px-23 fw-bold" id="editPostBtn" style="font-size: 1rem" onclick="deletePost(this.parentElement.parentElement.parentElement,1)">Delete</button>
-							<button class="btn btn-warning px-4 fw-bold" id="editPostBtn" style="font-size: 1rem" onclick="deletePost(this)">Edit</button>
-						</div>
-					</div>
-					<img src="assets/imgs/body.jpg" class="img-fluid" alt="Post img " style="aspect-ratio: 16/9; object-fit: contain" />
-					<h6 class="px-1 pt-1 text-end mt-2 me-1">2 min</h6>
-					<div class="card-body pt-1">
-						<h5 class="card-title">Card title</h5>
-						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-						<hr />
-						<div class="tagCommentContent d-flex justify-content-between align-items-center g-2">
-							<a href="#" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="<b>3</b>" data-bs-custom-class="custom-tooltip"> Comments</a>
-							<div class="tagContent d-flex gap-2 w-75 justify-content-end overflow-hidden">
-								<a href="#" class="btn btn-outline-secondary">#BT</a>
-								<a href="#" class="btn btn-outline-secondary">#BT</a>
-								<a href="#" class="btn btn-outline-secondary">#BT</a>
-							</div>
-						</div>
-					</div>
+				<div class="activiteInfo p-2 d-flex flex-column   align-items-center  flex-grow-1">
+					<div id="postCount" class="text-secondary opacity-75"> <span class="display-2  opacity-100 text-primary">30</span>Posts</div>
+					<div id="CommentCount" class="text-secondary opacity-75"> <span class="display-2 text-primary opacity-100">30</span>Comm</div>
 				</div>
-				<!-- end  post  -->
-			</div>
-			<!-- end posts  -->
-		</div>
+
+			 </div>
+            <!-- end profile section  -->
+            
+			<h1 class="mt-5 mb-2 text-secondary  align-self-start">User Posts</h1>
+            
+            <!-- start posts  -->
+                <div id="posts" class="posts d-grid gy-5 mt-4 col-12 col-lg-8" style="row-gap: 25px; transition : 0.3s;">
+                  
+                </div>
 		
-
+                
+			
+			</div>
 		<!--end  main content  -->
 
-		<!-- start alert  -->
-		<div id="liveAlertPlaceholder" class="position-fixed bottom-0" style="right: 1px; z-index: 99; width: 300px; padding-left: 10px"></div>
-		<!-- end alert  -->
-
-		<!-- tooltips script  -->
-		<script src="assets/app/tooltips.js"></script>
-
-		<!-- include font awesome cdn  -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-		<!-- import axios library  -->
-		<script src="../node_modules/axios/dist/axios.min.js"></script>
+			<!-- start alert  -->
+			<div id="liveAlertPlaceholder" class="position-fixed bottom-0" style="right: 1px; z-index: 99; width: 300px; padding-left: 10px"></div>
+			<!-- end alert  -->
+	
+			<!-- tooltips script  -->
+			<script src="assets/app/tooltips.js"></script>
+	
+			<!-- include font awesome cdn  -->
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	
+			<!-- import axios library  -->
+			<script src="../node_modules/axios/dist/axios.min.js"></script>
 
 		<!-- source js script  -->
 		<script src="assets/app/source.js"></script>
-
-		<!-- app js script  -->
-		<script src="assets/app/app.js"></script>
 
 		<!-- login js script   -->
 		<script src="assets/app/login.js"></script>
@@ -289,13 +266,15 @@
 		<!-- register js script  -->
 		<script src="assets/app/register.js"></script>
 
-		<!-- add post js script  -->
-		<script src="assets/app/addPost.js"></script>
+	
 
-		<!-- edit post script  -->
+		<!-- update post script  -->
 		<script src="assets/app/updatePost.js"></script>
-
-		<!-- delete post script   -->
+        
+        <!-- delete post script   -->
 		<script src="assets/app/deletePost.js"></script>
+
+		<!-- profile  script  -->
+      <script src="assets/app/profile.js"></script>
 	</body>
 </html>

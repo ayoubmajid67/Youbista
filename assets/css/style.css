@@ -64,9 +64,10 @@ li a.customNavHover:hover {
 }
 
 
-#addPostForm  #postTitle {
+#addPostForm #postTitle {
   transition: 0.3s;
 }
+
 #addPostForm textarea {
   border: none;
   outline: none;
@@ -106,34 +107,78 @@ li a.customNavHover:hover {
 /* end add Post */
 
 /* start  comments style */
-#comments{ 
+#comments {
   margin-bottom: 15px;
   transition: 0.4s;
 }
-@media (max-width :767px){
-#comments .box{
 
-  flex-direction: column ;
-}
-   
+@media (max-width :767px) {
+  #comments .box {
+
+    flex-direction: column;
+  }
+
 }
 
-#comments .box{
+#comments .box {
   border-bottom: 1px solid rgba(8, 134, 128, 0.108) !important;
-  gap: 0 !important; 
-}
-#comments p{
-  color: #464545; 
-  padding-left: 40px;
-  
+  gap: 0 !important;
 }
 
-#addComments  textarea{
+#comments p {
+  color: #464545;
+  padding-left: 40px;
+
+}
+
+#addComments textarea {
   resize: none;
 }
+
 /* end comments style */
-.headerContent{
+.headerContent {
   transition: 0.3s;
 }
 
+/* start profile  */
+.profile {
+  border-left: 3px solid #083a8480;
+}
 
+.profile .userInfo {
+  background-color: rgba(212, 239, 247, 0.081);
+
+}
+
+.userInfo .userContent h5 {
+  font-size: 1.4em;
+  font-variant: small-caps;
+  opacity: 0.9;
+  color: rgb(8, 41, 84);
+}
+
+@media (max-width :552px) {
+
+  .profile {
+    flex-direction: column;
+    width: 90% !important;
+    align-items: center;
+    gap: 5px !important;
+  }
+
+  .profile .userInfo {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px !important;
+  }
+
+  .activiteInfo {
+    gap: 15px;
+  }
+
+
+}
+
+
+/* end profile  */

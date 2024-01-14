@@ -43,7 +43,7 @@ function authorCommentJsonToHtml(commentInfo) {
 	return `
 <div class="box d-flex   gap-4 justify-content-between py-3 shadow rounded ">
     <div class="userInfo d-flex flex-row flex-md-column  gap-2 align-items-center  text-center px-3"style="width:150px">
-    <img src="${profileImg}" alt="" width="44px" height="44px" style="aspect-ratio: 4/4" class="rounded-5" />
+    <img src="${profileImg}" alt="" width="44px" height="44px" style="aspect-ratio: 4/4" class="rounded-5" onclick="showUserProfile(${commentInfo.author.id})" />
 	<h6>${commentInfo.author.username}</h6>
 	</div>
          

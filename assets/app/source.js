@@ -60,3 +60,15 @@ const updateImg=document.getElementById('updateImg');
 // delete post resources : 
 const deletePostModal=document.getElementById('deletePostModal'); 
 const deletePostBtn=document.getElementById('deletePostBtn'); 
+
+// profile resources : 
+const profileImg=document.querySelector('.userInfo img');
+
+const profileGmail=document.getElementById('gmail');
+const profileUsername=document.getElementById('username');
+const profileName=document.getElementById('name'); 
+
+const profilePostCount=document.querySelector('#postCount span'); 
+const profileCommentCount=document.querySelector('#CommentCount span'); 
+
+

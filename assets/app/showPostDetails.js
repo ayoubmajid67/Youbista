@@ -36,8 +36,10 @@ class cPost {
 	}
 	commentsJsonToHtml() {
 		let arrComments = Array.from(this.commentsJson);
+		
 
 		arrComments.forEach((comment) => {
+		
 			let profileImg = comment.author.profile_image;
 
 			if (profileImg instanceof Object) {
@@ -47,7 +49,7 @@ class cPost {
 			this.commentContent += ` 
     <div class="box d-flex   gap-4 justify-content-between py-3 shadow rounded ">
     <div class="userInfo d-flex flex-row flex-md-column  gap-2 align-items-center  text-center px-3"style="width:150px">
-    <img src="${profileImg}" alt="" width="44px" height="44px" style="aspect-ratio: 4/4" class="rounded-5" />
+    <img src="${profileImg}" alt="" width="44px" height="44px" style="aspect-ratio: 4/4" class="rounded-5"  onclick="showUserProfile(${comment.author.id})" />
 	<h6>${comment.author.username}</h6>
 	</div>
          
@@ -78,16 +80,20 @@ class cPost {
 		if (this.bodyText == null) {
 			this.bodyText = "No Body";
 		}
-
 		if (this.tags.length > 0) {
+			
 			this.FillPostTags();
 		}
+		
 		if (this.commentsCount > 0) {
+			
 			this.commentsJsonToHtml();
+	
 		}
 	}
 
-	constructor(id,profileImg, username, name, bodyImg, createdDate, title, bodyText, tags, commentsCount, commentsJson) {
+	constructor(userId,id,profileImg, username, name, bodyImg, createdDate, title, bodyText, tags, commentsCount, commentsJson) {
+		this.userId=userId; 
 		this.id=id; 
 		this.profile = profileImg;
 		this.name = name;
@@ -108,15 +114,15 @@ class cPost {
 
 
 function postJsonToHtml(jsonPost) {
-	let PostObject = new cPost(jsonPost.id,jsonPost.author.profile_image, jsonPost.author.username, jsonPost.author.name, (bodyImage = jsonPost.image), jsonPost.created_at, jsonPost.title, jsonPost.body, jsonPost.tags, jsonPost.comments_count);
-	 
+	let PostObject = new cPost(jsonPost.author.id,jsonPost.id,jsonPost.author.profile_image, jsonPost.author.username, jsonPost.author.name, (bodyImage = jsonPost.image), jsonPost.created_at, jsonPost.title, jsonPost.body, jsonPost.tags, jsonPost.comments_count,jsonPost.comments);
+	  
     let user=JSON.parse(localStorage.getItem("user")); 
     let  isUserPost=(user!=null && user.id==jsonPost.author.id);
 
       
     let headerContent=`
     <div class="card-header d-flex align-items-end gap-2 position-relative  headerContent" >
-    <img src="${PostObject.profile}" alt="profile img" class="rounded-circle border border-2" style="width: 44px; height: 44px;  margin-left: 1px" />
+    <img src="${PostObject.profile}" alt="profile img" class="rounded-circle border border-2" style="width: 44px; height: 44px;  margin-left: 1px " onclick="showUserProfile(${jsonPost.author.id})"  />
     <h4 class="text-dark"><span class="text-secondary">@</span>${PostObject.username}</h4>
 </div>
     `
@@ -126,7 +132,7 @@ function postJsonToHtml(jsonPost) {
      
         headerContent=`
         <div class="card-header d-flex align-items-end gap-2 position-relative bg-dark headerContent " >
-    <img src="${PostObject.profile}" alt="profile img" class="rounded-circle border border-2" style="width: 44px; height: 44px;  margin-left: 1px" />
+    <img src="${PostObject.profile}" alt="profile img" class="rounded-circle border border-2" style="width: 44px; height: 44px;  margin-left: 1px"  onclick="showUserProfile(${jsonPost.author.id})" />
     <h4 class="text-white"><span class="text-warning">@</span>${PostObject.username}</h4>
     <button class="btn btn-warning px-4 position-absolute fw-bold" id="editPostBtn" style="right: 7px; font-size: 1rem;" onclick="editPost('${strPost}')">Edit</button>
 
@@ -159,7 +165,8 @@ function postJsonToHtml(jsonPost) {
 
                                ${PostObject.commentContent}
         
-                            </div>         
+                            </div>   
+							      
                             ${getCommentForm()}
                             
             </div>
@@ -188,7 +195,6 @@ async function PushPostDetails() {
 
 		
 		let post = await getPostDetailsResponse(urlParams.postId);
-		
 		let htmlPost = postJsonToHtml(post);
 
 		// push post to html :
@@ -206,3 +212,9 @@ async function PushPostDetails() {
 	}
 }
 window.addEventListener("load", PushPostDetails);
+
+function showUserProfile(userId=""){
+  if(userId=="")  window.location=`profile.html`; 
+  else  
+    window.location=`profile.html?userId=${userId}`;    
+}
