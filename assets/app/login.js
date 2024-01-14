@@ -150,7 +150,7 @@ function getCommentForm() {
             <img src="${profileImg}" alt="" width="44px" height="44px" style="aspect-ratio: 4/4" class="rounded-5"  onclick="showUserProfile()"/>
             <form  id="commentForm " class="flex-grow-1 position-relative d-flex flex-column" onsubmit="return addComment();">
 								<textarea type="text" class="form-control fs-6 rounded px-3 py-2 " placeholder="write a comment " rows="2" oninput="autoResize(this)" required></textarea>
-								<input  type="submit" class="btn btn-primary align-self-end me-1 mt-1" value="Add" ></input>
+								<input  type="submit" class="btn btn-primary align-self-end me-1 mt-1" value="Add" >
 		</form>
         </div>
     </div>

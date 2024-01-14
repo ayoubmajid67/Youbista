@@ -180,5 +180,93 @@ li a.customNavHover:hover {
 
 }
 
+/* start  delete and app post btn :  */
+
+@media (max-width : 767px){
+  #editPostBtn,
+  #deletePostBtn{
+       font-size: 0.8rem !important;
+  }
+
+}
+
+/* end  delete and app post btn :  */
+
 
 /* end profile  */
+
+/* end profile */
+
+img:not(.img-fluid) {
+  cursor: pointer;
+}
+/* Start upDown animation */
+.parent {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  background-color: rgba(0, 0, 0, 0.892);
+  z-index: 100;
+  display: flex;
+  transition: opacity 0.3s;
+  flex-wrap: wrap;
+  z-index: 99999;
+}
+
+.points {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.parent h3 {
+  color: #2c4755;
+  margin-left: 20px;
+  font-size: 2.3em;
+  font-weight: 800;
+
+}
+@media (max-width:768px) {
+
+  .parent h3 {
+      font-size: 2em;
+      text-align: center;
+  }
+}
+
+.points div {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(67, 153, 172, 0.632);
+  animation-name: upDown;
+  animation-duration: 2s;
+  animation-iteration-count: 10;
+  animation-direction: alternate;
+
+
+}
+
+.parent .point2 {
+  animation-delay: 0.3s;
+}
+
+.parent .point3 {
+  animation-delay: 0.6s;
+}
+
+@keyframes upDown {
+
+  to {
+      opacity: 0.6;
+      transform: translateY(-40px);
+  }
+}
+
+/* End upDown animation */

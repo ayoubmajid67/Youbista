@@ -17,6 +17,16 @@
 		<!-- main styling  -->
 		<link rel="stylesheet" href="./assets/css/style.css" />
 	</head>
+	 <!-- Start upDown animation  -->
+	 <div class="parent">
+		<h3>Build By Ayoub Majid</h3>
+		<div class="points">
+			<div class="point1"></div>
+			<div class="point2"></div>
+			<div class="point3"></div>
+		</div>
+	</div>
+<!-- End upDown animation  -->
 	<body style="background-color: #e1eaeb">
 		<!-- start login  model  -->
 		<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -89,40 +99,40 @@
 		</div>
 		<!-- end  register   model  -->
 
-		<!-- start  post modal   -->
-		<div class="modal fade" id="addPostModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 50px; transform: scale(0.92)">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h1 class="modal-title fs-5" id="AddPostTitle">Add Post</h1>
-						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeAddPostBtn"></button>
-					</div>
-					<div class="modal-body">
-						<form id="addPostForm" enctype="multipart/form-data">
-							<div class="mb-3">
-								<input type="text" class="form-control p-3 mb-2" id="postTitle" placeholder="enter the Title" />
-								<textarea class="p-2 w-100" placeholder="what's are you thinking ? " id="postBody" required></textarea>
+	<!-- start  post modal   -->
+	<div class="modal fade" id="addPostModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 10px; transform: scale(0.84)">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="AddPostTitle">Add Post</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeAddPostBtn"></button>
+				</div>
+				<div class="modal-body">
+					<form id="addPostForm" enctype="multipart/form-data">
+						<div class="mb-2">
+							<input type="text" class="form-control p-3 mb-1" id="postTitle" placeholder="enter the Title" />
+							<textarea class="p-2 w-100" placeholder="what's are you thinking ? " id="postBody" required></textarea>
 
-								<div class="imgContainer d-flex justify-content-center align-items-center p-2">
-									<div class="content text-center">
-										<h4 class="text-secondary">Choose a File</h4>
-										<img width="64" height="64" src="assets/icons/addPost.svg" alt="add-image" />
-									</div>
-									<input type="file" class="my-3 p-2" id="postImg" name="image" accept="image/*" onchange="updateFileBackground()" />
+							<div class="imgContainer d-flex justify-content-center align-items-center p-2">
+								<div class="content text-center">
+									<h4 class="text-secondary">Choose a File</h4>
+									<img width="64" height="64" src="assets/icons/addPost.svg" alt="add-image" />
 								</div>
-
-								<input type="text" class="form-control p-3 mt-2" id="postTags" placeholder="Tag1 Tag2 .." />
+								<input type="file" class="my-2 p-2" id="postImg" name="image" accept="image/*" onchange="updateFileBackground()" />
 							</div>
 
-							<button type="submit" class="btn btn-primary w-100 fw-bold" id="addPostBtn">Add Post</button>
-						</form>
-					</div>
+							<input type="text" class="form-control p-3 mt-1" id="postTags" placeholder="Tag1 Tag2 .." />
+						</div>
+
+						<button type="submit" class="btn btn-primary w-100 fw-bold" id="addPostBtn">Add Post</button>
+					</form>
 				</div>
 			</div>
 		</div>
-		<!-- end  post modal   -->
+	</div>
+	<!-- end  post modal   -->
 		<!-- start  update  post modal   -->
-		<div class="modal fade" id="updatePostModal" tabindex="-1" aria-hidden="true" style="margin-top: 50px; transform: scale(0.92);">
+		<div class="modal fade" id="updatePostModal" tabindex="-1" aria-hidden="true" style="margin-top: 10px; transform: scale(0.92)">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -146,14 +156,14 @@
 								<input type="text" class="form-control p-3 mt-2" id="updatePostTags" placeholder="Tag1 Tag2 .." />
 							</div>
 
-							<button type="submit" class="btn btn-primary w-100 fw-bold" id="updatePostBtn" >update Post</button>
+							<button type="submit" class="btn btn-primary w-100 fw-bold" id="updatePostBtn">update Post</button>
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
 		<!-- end  update post modal   -->
-        <!-- start delete post modal  -->
+		<!-- start delete post modal  -->
 
 		<div class="modal fade" id="deletePostModal" tabindex="-1" aria-hidden="true">
 			<div class="modal-dialog">
@@ -206,50 +216,44 @@
 		<!--start   main content  -->
 
 		<div class="container d-flex justify-content-center flex-column align-items-center" id="mainContent">
-				
-            <!-- start profile section  -->
-             <div class="profile  bg-light shadow-sm d-flex mt-5 mb-3 align-items-center gap-4 flex-wrap p-2  py-3 rounded-2 w-75">
-                <div class="userInfo d-flex gap-5 p-3 py-4 rounded">
-					<img src="assets/imgs/profile.png" alt=""  width="100px" height="100px" class="rounded-circle">
-					<div class="userContent d-flex flex-column gap-2 ">
+			<!-- start profile section  -->
+			<div class="profile bg-light shadow-sm d-flex mt-5 mb-3 align-items-center gap-4 flex-wrap p-2 py-3 rounded-2 w-75">
+				<div class="userInfo d-flex gap-5 p-3 py-4 rounded">
+					<img src="assets/imgs/profile.png" alt="" width="100px" height="100px" class="rounded-circle" />
+					<div class="userContent d-flex flex-column gap-2">
 						<h5 id="gmail"></h5>
-						 <h5 id="username"><span>@</span></h5>
-						 <h5 id="name" ></h5>
+						<h5 id="username"><span>@</span></h5>
+						<h5 id="name"></h5>
 					</div>
-
 				</div>
-				<div class="activiteInfo p-2 d-flex flex-column   align-items-center  flex-grow-1">
-					<div id="postCount" class="text-secondary opacity-75"> <span class="display-2  opacity-100 text-primary">30</span>Posts</div>
-					<div id="CommentCount" class="text-secondary opacity-75"> <span class="display-2 text-primary opacity-100">30</span>Comm</div>
+				<div class="activiteInfo p-2 d-flex flex-column align-items-center flex-grow-1">
+					<div id="postCount" class="text-secondary opacity-75"><span class="display-2 opacity-100 text-primary">30</span>Posts</div>
+					<div id="CommentCount" class="text-secondary opacity-75"><span class="display-2 text-primary opacity-100">30</span>Comm</div>
 				</div>
-
-			 </div>
-            <!-- end profile section  -->
-            
-			<h1 class="mt-5 mb-2 text-secondary  align-self-start">User Posts</h1>
-            
-            <!-- start posts  -->
-                <div id="posts" class="posts d-grid gy-5 mt-4 col-12 col-lg-8" style="row-gap: 25px; transition : 0.3s;">
-                  
-                </div>
-		
-                
-			
 			</div>
-		<!--end  main content  -->
+			<!-- end profile section  -->
 
-			<!-- start alert  -->
-			<div id="liveAlertPlaceholder" class="position-fixed bottom-0" style="right: 1px; z-index: 99; width: 300px; padding-left: 10px"></div>
-			<!-- end alert  -->
-	
-			<!-- tooltips script  -->
-			<script src="assets/app/tooltips.js"></script>
-	
-			<!-- include font awesome cdn  -->
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	
-			<!-- import axios library  -->
-			<script src="../node_modules/axios/dist/axios.min.js"></script>
+			<h1 class="mt-5 mb-2 text-secondary align-self-start">User Posts</h1>
+
+			<!-- start posts  -->
+			<div id="posts" class="posts d-grid gy-5 mt-4 col-12 col-lg-8" style="row-gap: 25px; transition: 0.3s"></div>
+		</div>
+		<!--end  main content  -->
+		<!-- loader script  -->
+		<script src="assets/app/loader.js" ></script>
+
+		<!-- start alert  -->
+		<div id="liveAlertPlaceholder" class="position-fixed bottom-0" style="right: 1px; z-index: 99; width: 300px; padding-left: 10px"></div>
+		<!-- end alert  -->
+
+		<!-- tooltips script  -->
+		<script src="assets/app/tooltips.js"></script>
+
+		<!-- include font awesome cdn  -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+		<!-- import axios library  -->
+		<script src="../node_modules/axios/dist/axios.min.js"></script>
 
 		<!-- source js script  -->
 		<script src="assets/app/source.js"></script>
@@ -266,15 +270,13 @@
 		<!-- register js script  -->
 		<script src="assets/app/register.js"></script>
 
-	
-
 		<!-- update post script  -->
 		<script src="assets/app/updatePost.js"></script>
-        
-        <!-- delete post script   -->
+
+		<!-- delete post script   -->
 		<script src="assets/app/deletePost.js"></script>
 
 		<!-- profile  script  -->
-      <script src="assets/app/profile.js"></script>
+		<script src="assets/app/profile.js"></script>
 	</body>
 </html>

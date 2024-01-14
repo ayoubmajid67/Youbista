@@ -17,6 +17,18 @@
 		<!-- main styling  -->
 		<link rel="stylesheet" href="./assets/css/style.css" />
 	</head>
+    
+    <!-- Start upDown animation  -->
+			<div class="parent">
+				<h3>Build By Ayoub Majid</h3>
+				<div class="points">
+					<div class="point1"></div>
+					<div class="point2"></div>
+					<div class="point3"></div>
+				</div>
+			</div>
+	<!-- End upDown animation  -->
+
 	<body style="background-color: #e1eaeb">
 		<!-- start login  model  -->
 		<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -90,7 +102,7 @@
 		<!-- end  register   model  -->
 
 		<!-- start  post modal   -->
-		<div class="modal fade" id="addPostModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 50px; transform: scale(0.92)">
+		<div class="modal fade" id="addPostModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 10px; transform: scale(0.84)">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -99,8 +111,8 @@
 					</div>
 					<div class="modal-body">
 						<form id="addPostForm" enctype="multipart/form-data">
-							<div class="mb-3">
-								<input type="text" class="form-control p-3 mb-2" id="postTitle" placeholder="enter the Title" />
+							<div class="mb-2">
+								<input type="text" class="form-control p-3 mb-1" id="postTitle" placeholder="enter the Title" />
 								<textarea class="p-2 w-100" placeholder="what's are you thinking ? " id="postBody" required></textarea>
 
 								<div class="imgContainer d-flex justify-content-center align-items-center p-2">
@@ -108,10 +120,10 @@
 										<h4 class="text-secondary">Choose a File</h4>
 										<img width="64" height="64" src="assets/icons/addPost.svg" alt="add-image" />
 									</div>
-									<input type="file" class="my-3 p-2" id="postImg" name="image" accept="image/*" onchange="updateFileBackground()" />
+									<input type="file" class="my-2 p-2" id="postImg" name="image" accept="image/*" onchange="updateFileBackground()" />
 								</div>
 
-								<input type="text" class="form-control p-3 mt-2" id="postTags" placeholder="Tag1 Tag2 .." />
+								<input type="text" class="form-control p-3 mt-1" id="postTags" placeholder="Tag1 Tag2 .." />
 							</div>
 
 							<button type="submit" class="btn btn-primary w-100 fw-bold" id="addPostBtn">Add Post</button>
@@ -122,7 +134,7 @@
 		</div>
 		<!-- end  post modal   -->
 		<!-- start  update  post modal   -->
-		<div class="modal fade" id="updatePostModal" tabindex="-1" aria-hidden="true" style="margin-top: 50px; transform: scale(0.92)">
+		<div class="modal fade" id="updatePostModal" tabindex="-1" aria-hidden="true" style="margin-top: 10px; transform: scale(0.92)">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -220,9 +232,9 @@
 			<!-- end main form  -->
 
 			<!-- start posts  -->
-			<div id="posts" class="posts d-grid gy-5 mt-4 col-12 col-lg-8" style="row-gap: 25px; transition : 0.3s;">
+			<div id="posts" class="posts d-grid gy-5 mt-4 col-12 col-lg-8" style="row-gap: 25px; transition: 0.3s">
 				<!-- start post  -->
-				<div class="card w-100 shadow-sm" style="width: 18rem">
+				<!-- <div class="card w-100 shadow-sm" style="width: 18rem">
 					<div class="card-header d-flex align-items-end gap-2 bg-dark">
 						<div class="userInfo d-flex align-items-end gap-2">
 							<img src="./assets/imgs/profile.png " alt="profile img" class="rounded-circle border border-2" style="width: 44px; height: 44px; margin-left: 1px" />
@@ -249,18 +261,20 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<!-- end  post  -->
 			</div>
 			<!-- end posts  -->
 		</div>
-		
 
 		<!--end  main content  -->
 
 		<!-- start alert  -->
 		<div id="liveAlertPlaceholder" class="position-fixed bottom-0" style="right: 1px; z-index: 99; width: 300px; padding-left: 10px"></div>
 		<!-- end alert  -->
+
+		<!-- loader script  -->
+		<script src="assets/app/loader.js" ></script>
 
 		<!-- tooltips script  -->
 		<script src="assets/app/tooltips.js"></script>
