@@ -1,5 +1,3 @@
-
-
 allowSubmission = true;
 
 const registerModal = document.getElementById("registerModal");

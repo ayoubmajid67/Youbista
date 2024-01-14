@@ -65,20 +65,19 @@ async function handelAddComment() {
 	let SubmitBtn = document.querySelector('#addComments input[type="submit"]');
 	let postId = getIdParameter();
 	try {
-		SubmitBtn.setAttribute('disabled',true); 
+		SubmitBtn.setAttribute("disabled", true);
 		let commentsInfo = await getCommentDetailsResponse(postId, addCommentText.value);
 
 		let htmlAuthorComment = authorCommentJsonToHtml(commentsInfo);
 		let comments = document.getElementById("comments");
 		comments.insertAdjacentHTML("afterbegin", htmlAuthorComment);
 		addCommentText.value = "";
-	    SubmitBtn.removeAttribute("disabled");
+		SubmitBtn.removeAttribute("disabled");
 	} catch (error) {
 		await delay(20);
 		appendAlert(error, "danger");
 		await clearAlert();
 	}
-	
 }
 
 function addComment() {

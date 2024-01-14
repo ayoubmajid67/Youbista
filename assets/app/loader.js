@@ -1,23 +1,22 @@
 let parent = document.querySelector(".parent");
-	
-			function delay(milliseconds) {
-				return new Promise((resolve) => setTimeout(resolve, milliseconds));
-			}
-			function goToTop() {
-				document.documentElement.scrollTop = 0; // For modern browsers
-				document.body.scrollTop = 0; // For older browsers
-			}
-	
-			async function upDownAnim() {
-				goToTop();
-				parent.style.display = "flex";
-				for (let i = 1; i >= 0; i -= 0.01) {
-					parent.style.opacity = i;
-					await delay(24);
-				}
-	             console.log("hi");
-				parent.style.display = "none";
-			}
-	
- upDownAnim();
-	
+
+function delay(milliseconds) {
+	return new Promise((resolve) => setTimeout(resolve, milliseconds));
+}
+function goToTop() {
+	document.documentElement.scrollTop = 0; // For modern browsers
+	document.body.scrollTop = 0; // For older browsers
+}
+
+async function upDownAnim() {
+	goToTop();
+	parent.style.display = "flex";
+	for (let i = 1; i >= 0; i -= 0.01) {
+		parent.style.opacity = i;
+		await delay(16);
+	}
+	console.log("hi");
+	parent.style.display = "none";
+}
+
+upDownAnim();

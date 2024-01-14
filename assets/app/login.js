@@ -53,10 +53,8 @@ LoginForm.addEventListener("submit", async function (event) {
 		errorMsgDom.innerHTML = "";
 		let currentPageName = window.location.pathname.split("/").pop().toLowerCase();
 		if (currentPageName == "index.html") goToLoginPage();
-		
-		else if(currentPageName=='profile.html') goToProfilePage(); 
-
-		else  goToLoginDetailsPage();
+		else if (currentPageName == "profile.html") goToProfilePage();
+		else goToLoginDetailsPage();
 
 		updatePostToLogin();
 
@@ -122,7 +120,7 @@ function goToLoginPage() {
 
 	mainContent.firstElementChild.innerHTML = strFormContent;
 }
-function goToProfilePage(){
+function goToProfilePage() {
 	let user = JSON.parse(localStorage.getItem("user"));
 	let profileImgUrl = user.profile_image;
 	if (profileImgUrl instanceof Object) {

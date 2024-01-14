@@ -70,11 +70,8 @@ async function handleAddPost() {
 function clearPostModal() {
 	imgContainer.style.backgroundImage = `none`;
 	imgContainerContent.style.display = "block";
-AddPostFrom.reset(); 
-
+	AddPostFrom.reset();
 }
-
-
 
 AddPostFrom.addEventListener("submit", async function (event) {
 	event.preventDefault();

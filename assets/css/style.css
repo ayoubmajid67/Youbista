@@ -182,10 +182,35 @@ li a.customNavHover:hover {
 
 /* start  delete and app post btn :  */
 
-@media (max-width : 767px){
+@media (max-width : 767px) {
+
   #editPostBtn,
-  #deletePostBtn{
-       font-size: 0.8rem !important;
+  #deletePostBtn {
+    font-size: 0.8rem !important;
+  }
+
+}
+@media (max-width : 500px) {
+
+  #postUsername {
+    font-size: 1.2rem !important;
+  }
+  #editPostBtn,
+  #deletePostBtn {
+    font-size: 0.75rem !important;
+  
+  }
+
+}
+@media (max-width : 370px) {
+
+  #postUsername {
+    font-size: 1rem !important;
+  }
+  #editPostBtn,
+  #deletePostBtn {
+    font-size: 0.70rem !important;
+  
   }
 
 }
@@ -200,6 +225,7 @@ li a.customNavHover:hover {
 img:not(.img-fluid) {
   cursor: pointer;
 }
+
 /* Start upDown animation */
 .parent {
   position: fixed;
@@ -232,11 +258,12 @@ img:not(.img-fluid) {
   font-weight: 800;
 
 }
+
 @media (max-width:768px) {
 
   .parent h3 {
-      font-size: 2em;
-      text-align: center;
+    font-size: 2em;
+    text-align: center;
   }
 }
 
@@ -264,8 +291,8 @@ img:not(.img-fluid) {
 @keyframes upDown {
 
   to {
-      opacity: 0.6;
-      transform: translateY(-40px);
+    opacity: 0.6;
+    transform: translateY(-40px);
   }
 }
 

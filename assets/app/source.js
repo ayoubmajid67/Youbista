@@ -41,12 +41,12 @@ const addPostBtn = document.getElementById("addPostBtn");
 const closeAddPostBtn = document.getElementById("closeAddPostBtn");
 // const addCommentForm=document.getElementById('addComments');
 
-// update post resources : 
+// update post resources :
 
 const imgUpdateContainer = document.querySelector("#updatePostForm .imgContainer");
 const imgUpdateContainerContent = document.querySelector("#updatePostForm .imgContainer .content");
 
-const updatePostModal=document.getElementById('updatePostModal'); 
+const updatePostModal = document.getElementById("updatePostModal");
 const updatePostTitle = document.getElementById("updatePostTitle");
 const updatePostBody = document.getElementById("updatePostBody");
 const updatePostFileInput = document.getElementById("updatePostImg");
@@ -54,21 +54,18 @@ const updatePostTags = document.getElementById("updatePostTags");
 const updatePostFrom = document.getElementById("updatePostForm");
 const updatePostBtn = document.getElementById("updatePostBtn");
 const updateClosePostBtn = document.getElementById("closeUpdatePostBtn");
-const updateImg=document.getElementById('updateImg');
+const updateImg = document.getElementById("updateImg");
 
+// delete post resources :
+const deletePostModal = document.getElementById("deletePostModal");
+const deletePostBtn = document.getElementById("deletePostBtn");
 
-// delete post resources : 
-const deletePostModal=document.getElementById('deletePostModal'); 
-const deletePostBtn=document.getElementById('deletePostBtn'); 
+// profile resources :
+const profileImg = document.querySelector(".userInfo img");
 
-// profile resources : 
-const profileImg=document.querySelector('.userInfo img');
+const profileGmail = document.getElementById("gmail");
+const profileUsername = document.getElementById("username");
+const profileName = document.getElementById("name");
 
-const profileGmail=document.getElementById('gmail');
-const profileUsername=document.getElementById('username');
-const profileName=document.getElementById('name'); 
-
-const profilePostCount=document.querySelector('#postCount span'); 
-const profileCommentCount=document.querySelector('#CommentCount span'); 
-
-
+const profilePostCount = document.querySelector("#postCount span");
+const profileCommentCount = document.querySelector("#CommentCount span");

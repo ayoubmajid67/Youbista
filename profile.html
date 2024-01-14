@@ -17,8 +17,8 @@
 		<!-- main styling  -->
 		<link rel="stylesheet" href="./assets/css/style.css" />
 	</head>
-	 <!-- Start upDown animation  -->
-	 <div class="parent">
+	<!-- Start upDown animation  -->
+	<div class="parent">
 		<h3>Build By Ayoub Majid</h3>
 		<div class="points">
 			<div class="point1"></div>
@@ -26,7 +26,7 @@
 			<div class="point3"></div>
 		</div>
 	</div>
-<!-- End upDown animation  -->
+	<!-- End upDown animation  -->
 	<body style="background-color: #e1eaeb">
 		<!-- start login  model  -->
 		<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -99,38 +99,38 @@
 		</div>
 		<!-- end  register   model  -->
 
-	<!-- start  post modal   -->
-	<div class="modal fade" id="addPostModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 10px; transform: scale(0.84)">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h1 class="modal-title fs-5" id="AddPostTitle">Add Post</h1>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeAddPostBtn"></button>
-				</div>
-				<div class="modal-body">
-					<form id="addPostForm" enctype="multipart/form-data">
-						<div class="mb-2">
-							<input type="text" class="form-control p-3 mb-1" id="postTitle" placeholder="enter the Title" />
-							<textarea class="p-2 w-100" placeholder="what's are you thinking ? " id="postBody" required></textarea>
+		<!-- start  post modal   -->
+		<div class="modal fade" id="addPostModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 10px; transform: scale(0.84)">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="AddPostTitle">Add Post</h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeAddPostBtn"></button>
+					</div>
+					<div class="modal-body">
+						<form id="addPostForm" enctype="multipart/form-data">
+							<div class="mb-2">
+								<input type="text" class="form-control p-3 mb-1" id="postTitle" placeholder="enter the Title" />
+								<textarea class="p-2 w-100" placeholder="what's are you thinking ? " id="postBody" required></textarea>
 
-							<div class="imgContainer d-flex justify-content-center align-items-center p-2">
-								<div class="content text-center">
-									<h4 class="text-secondary">Choose a File</h4>
-									<img width="64" height="64" src="assets/icons/addPost.svg" alt="add-image" />
+								<div class="imgContainer d-flex justify-content-center align-items-center p-2">
+									<div class="content text-center">
+										<h4 class="text-secondary">Choose a File</h4>
+										<img width="64" height="64" src="assets/icons/addPost.svg" alt="add-image" />
+									</div>
+									<input type="file" class="my-2 p-2" id="postImg" name="image" accept="image/*" onchange="updateFileBackground()" />
 								</div>
-								<input type="file" class="my-2 p-2" id="postImg" name="image" accept="image/*" onchange="updateFileBackground()" />
+
+								<input type="text" class="form-control p-3 mt-1" id="postTags" placeholder="Tag1 Tag2 .." />
 							</div>
 
-							<input type="text" class="form-control p-3 mt-1" id="postTags" placeholder="Tag1 Tag2 .." />
-						</div>
-
-						<button type="submit" class="btn btn-primary w-100 fw-bold" id="addPostBtn">Add Post</button>
-					</form>
+							<button type="submit" class="btn btn-primary w-100 fw-bold" id="addPostBtn">Add Post</button>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- end  post modal   -->
+		<!-- end  post modal   -->
 		<!-- start  update  post modal   -->
 		<div class="modal fade" id="updatePostModal" tabindex="-1" aria-hidden="true" style="margin-top: 10px; transform: scale(0.92)">
 			<div class="modal-dialog">
@@ -240,7 +240,7 @@
 		</div>
 		<!--end  main content  -->
 		<!-- loader script  -->
-		<script src="assets/app/loader.js" ></script>
+		<script src="assets/app/loader.js"></script>
 
 		<!-- start alert  -->
 		<div id="liveAlertPlaceholder" class="position-fixed bottom-0" style="right: 1px; z-index: 99; width: 300px; padding-left: 10px"></div>

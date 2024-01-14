@@ -22,7 +22,6 @@ function removeAddPostContent() {
 }
 
 function updatePostToLogout() {
-
 	let postHeaders = document.querySelectorAll("#posts .headerContent");
 
 	postHeaders.forEach((header) => {
@@ -31,32 +30,27 @@ function updatePostToLogout() {
 		let deletePostBtn = header.querySelector("#deletePostBtn");
 
 		if (editPostBtn && deletePostBtn) {
-		
-			 
-                  editPostBtn.style.display="none"; 
-                  editPostBtn.style.visibility="hidden"; 
+			editPostBtn.style.display = "none";
+			editPostBtn.style.visibility = "hidden";
 
-                  deletePostBtn.style.display="none"; 
-                  deletePostBtn.style.visibility="hidden"; 
-				// change the background of the header :
-				header.classList.remove("bg-dark");
+			deletePostBtn.style.display = "none";
+			deletePostBtn.style.visibility = "hidden";
+			// change the background of the header :
+			header.classList.remove("bg-dark");
 
-				//change the styling of the header  text :
-				let headerTextContent = header.querySelector("h4");
-				headerTextContent.classList.remove("text-white");
-				headerTextContent.classList.add("text-dark");
+			//change the styling of the header  text :
+			let headerTextContent = header.querySelector("h4");
+			headerTextContent.classList.remove("text-white");
+			headerTextContent.classList.add("text-dark");
 
-				//   change the color of @ :
-				let hashtag = headerTextContent.querySelector("span");
+			//   change the color of @ :
+			let hashtag = headerTextContent.querySelector("span");
 
-				hashtag.classList.remove("text-warning");
-				hashtag.classList.add("text-secondary");
-			
+			hashtag.classList.remove("text-warning");
+			hashtag.classList.add("text-secondary");
 		}
 	});
 }
-
-	
 
 async function logout() {
 	let currentPageName = window.location.pathname.split("/").pop().toLowerCase();
@@ -64,7 +58,7 @@ async function logout() {
 	removeUserInfoFromLocalStorage();
 	innerLogoutButtons();
 	if (currentPageName == "index.html") removeAddPostContent();
-	else if(currentPageName=='postdetails.html') {
+	else if (currentPageName == "postdetails.html") {
 		addCommentForm = document.getElementById("addComments");
 		addCommentForm.innerHTML = "";
 	}
@@ -74,5 +68,4 @@ async function logout() {
 
 	await delay(100);
 	await clearAlert();
-	
 }
