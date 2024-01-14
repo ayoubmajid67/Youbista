@@ -15,7 +15,6 @@ async function upDownAnim() {
 		parent.style.opacity = i;
 		await delay(16);
 	}
-	console.log("hi");
 	parent.style.display = "none";
 }
 
