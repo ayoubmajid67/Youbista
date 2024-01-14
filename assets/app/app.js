@@ -82,7 +82,7 @@ function postJsonToHtml(jsonPost) {
     <h4 class="text-white" id="postUsername"><span class="text-warning">@</span>${PostObject.username}</h4>
     <div class="postButtons d-flex justify-content-end flex-grow-1 gap-3 "">
     <button class="btn btn-warning px-23 fw-bold" id="deletePostBtn" style=" font-size: 1rem;" onclick="deletePost(this.parentElement.parentElement.parentElement,${PostObject.id})">Delete</button>
-    <button class="btn btn-warning px-4  fw-bold" id="editPostBtn" style="font-size: 1rem;" onclick="editPost('${strPost}')">Edit</button>
+    <button class="btn btn-warning px-4  fw-bold" id="editPostBtn" style="font-size: 1rem;" onclick="editPost('${strPost}',this.parentElement.parentElement.parentElement)">Edit</button>
     </div>
   
 

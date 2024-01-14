@@ -37,12 +37,14 @@ function clearUpdateModal() {
 }
 
 let postObject;
-function editPost(postInfo) {
+let  currentPost=""; 
+function editPost(postInfo,thisPost) {
+	
+	currentPost=thisPost; 
 	postInfo = decodeURIComponent(postInfo);
 
 	// Parse the JSON string back into an object
 	postObject = JSON.parse(postInfo);
-
 	fillDateToModal(postObject);
 	openUpdateModal();
 }
@@ -115,8 +117,13 @@ updatePostFrom.addEventListener("submit", async function (event) {
 		let htmlPost = postJsonToHtml(postJson);
 		let currentPageName = window.location.pathname.split("/").pop().toLowerCase();
 
-		if (currentPageName == "index.html") domPostsParent.insertAdjacentHTML("afterbegin", htmlPost);
-		else domPostsParent.innerHTML = htmlPost;
+		if (currentPageName == "index.html" ||  currentPageName=='profile.html') {
+		    
+                currentPost.remove();
+			domPostsParent.insertAdjacentHTML("afterbegin", htmlPost);
+		}
+		else  
+		domPostsParent.innerHTML = htmlPost;
 		initializeTooltips();
 		scrollToTop();
 		clearAlert();
