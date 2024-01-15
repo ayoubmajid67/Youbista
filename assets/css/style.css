@@ -295,5 +295,12 @@ img:not(.img-fluid) {
     transform: translateY(-40px);
   }
 }
-
 /* End upDown animation */
+
+/* start  add post form  */
+
+input[data-bs-target="#addPostModal"]{
+ 
+
+}
+/* end  add post form  */
