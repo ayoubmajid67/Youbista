@@ -52,7 +52,7 @@ LoginForm.addEventListener("submit", async function (event) {
 		closeBtn.click();
 		errorMsgDom.innerHTML = "";
 		let currentPageName = window.location.pathname.split("/").pop().toLowerCase();
-		if (currentPageName == "index.html") goToLoginPage();
+		if (currentPageName == "index.html" || currentPageName=="") goToLoginPage();
 		else if (currentPageName == "profile.html") goToProfilePage();
 		else goToLoginDetailsPage();
 

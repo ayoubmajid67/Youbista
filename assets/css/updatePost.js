@@ -117,7 +117,7 @@ updatePostFrom.addEventListener("submit", async function (event) {
 		let htmlPost = postJsonToHtml(postJson);
 		let currentPageName = window.location.pathname.split("/").pop().toLowerCase();
 
-		if (currentPageName == "index.html" ||  currentPageName=='profile.html') {
+		if (currentPageName == "index.html" || currentPageName=="" ||  currentPageName=='profile.html') {
 		    
                 currentPost.remove();
 			domPostsParent.insertAdjacentHTML("afterbegin", htmlPost);

@@ -57,7 +57,7 @@ async function logout() {
 
 	removeUserInfoFromLocalStorage();
 	innerLogoutButtons();
-	if (currentPageName == "index.html") removeAddPostContent();
+	if (currentPageName == "index.html" || currentPageName=="") removeAddPostContent();
 	else if (currentPageName == "postdetails.html") {
 		addCommentForm = document.getElementById("addComments");
 		addCommentForm.innerHTML = "";
