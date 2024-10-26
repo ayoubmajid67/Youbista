@@ -2,7 +2,7 @@
 # Social Media-Inspired Website Repository
 Welcome to my repository for a newly launched social media-inspired website!
 
-[View Portfolio](https://ayoubmajid67.github.io/Youbista/index.html) ✔️ 
+[View Site](https://ayoubmajid67.github.io/Youbista/index.html) ✔️ 
 
 ![Home page](./logo.png)
 
