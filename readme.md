@@ -1,30 +1,33 @@
 
+# Social Media-Inspired Website Repository
+Welcome to my repository for a newly launched social media-inspired website!
 
-# Social Media-Inspired Website
-
-🚀 **Exciting News**! I’ve launched a new social media-inspired website! 
+[View Portfolio](https://ayoubmajid67.github.io/Youbista/index.html) ✔️ 
 
 ![Home page](./logo.png)
-## Demo
 
-[Experience the Demo](https://github.com/ayoubmajid67/Youbista.git)
 
-## Features
 
-- **Comprehensive API**: The website leverages a robust API, ensuring seamless user interaction.
-- **User Interaction**: Engage with posts, tags, and more, creating a dynamic user experience.
-- **Authentication**: Backed by strong authentication for secure user access.
-- **Rich Online Community**: Explore various pages including:
-  - **Home**: The central hub for browsing posts and updates.
-  - **Profile**: A dedicated space for users to manage their information and posts.
-  - **Post Details**: Detailed views of individual posts, featuring pagination and interactive elements.
+## 🚀 Exciting News!
 
-## Acknowledgments
+I’m thrilled to share this project that leverages a comprehensive API to deliver a seamless user experience. The site features robust authentication and allows for engaging interactions, including posts, tags, and more.
 
-A special thanks to **Yarob Al Mostafa** for providing this awesome API, which made this project possible!
 
-**#WebDevelopment #SocialMediaApp** 
+## 📋 Key Features
 
----
+- **User Interaction**: Engage effortlessly with posts and tags.
+- **Strong Authentication**: Ensures secure access for users.
+- **Rich Online Community**:
+  - **Home**: Browse through recent posts and updates.
+  - **Profile**: Manage your personal information and contributions.
+  - **Post Details**: Dive into individual posts, complete with pagination and interactive features.
 
-Feel free to modify any sections as needed to suit your style!
+## 🙏 Acknowledgments
+
+A special thank you to **Yarob Al Mostafa** for providing the fantastic API that powered this project.
+
+## 📫 Contact
+
+For any questions, feedback, or collaboration opportunities, feel free to reach out to me!
+
+**#WebDevelopment #SocialMediaApp**
